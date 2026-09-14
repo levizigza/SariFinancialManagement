@@ -7,7 +7,14 @@ import type { NextConfig } from "next";
 const isGithubPages = process.env.GITHUB_PAGES === "true";
 const isStaticExport =
   isGithubPages || process.env.NEXT_PUBLIC_STATIC_EXPORT === "true";
-const repoBasePath = "/SariFinancialManagement";
+const repoBasePath =
+  process.env.NEXT_PUBLIC_BASE_PATH?.replace(/\/$/, "") ||
+  "/SariFinancialManagement";
+
+// Keep client helpers (withBasePath) aligned with next.config basePath.
+if (isGithubPages && !process.env.NEXT_PUBLIC_BASE_PATH) {
+  process.env.NEXT_PUBLIC_BASE_PATH = repoBasePath;
+}
 
 /**
  * Security headers supported on typical Next.js hosts (Vercel, Node).
