@@ -1,0 +1,121 @@
+/**
+ * Sari Financial Management — design tokens
+ * Single source of truth for color, type, space, motion, and focus.
+ */
+
+:root {
+  /* Brand palette — quiet luxury: deep navy, champagne gold, warm ivory */
+  --navy-950: #010f1f;
+  --navy-900: #02182e;
+  --navy-800: #0a243c;
+  /* Darker muted blue for small labels on ivory (~7:1+ vs prior ~5.5:1) */
+  --blue-muted: #2a3d4f;
+  --gold-500: #c4a36a;
+  --gold-300: #e6d3a8;
+  --gold-100: #f4ecdc;
+  --ivory-50: #f6f2e9;
+  --white: #ffffff;
+
+  /* Semantic surfaces */
+  --surface-navy: var(--navy-950);
+  --surface-navy-elevated: var(--navy-900);
+  --surface-navy-soft: var(--navy-800);
+  --surface-ivory: var(--ivory-50);
+  --surface-white: var(--white);
+
+  /* Atmospheric washes — richer depth, restrained champagne light */
+  --surface-navy-wash: radial-gradient(
+      100% 70% at 92% 8%,
+      color-mix(in srgb, var(--gold-500) 9%, transparent) 0%,
+      transparent 42%
+    ),
+    radial-gradient(
+      120% 80% at 12% 90%,
+      color-mix(in srgb, var(--navy-800) 85%, transparent) 0%,
+      transparent 55%
+    ),
+    linear-gradient(
+      155deg,
+      #010c18 0%,
+      var(--navy-950) 38%,
+      var(--navy-900) 72%,
+      #01101f 100%
+    );
+  --surface-ivory-wash: radial-gradient(
+      55% 45% at 100% 0%,
+      color-mix(in srgb, var(--gold-300) 18%, transparent) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      180deg,
+      var(--ivory-50) 0%,
+      color-mix(in srgb, var(--ivory-50) 94%, var(--navy-800)) 100%
+    );
+
+  /* Luxury elevation */
+  --shadow-soft: 0 18px 50px -28px rgba(1, 15, 31, 0.45);
+  --shadow-frame: 0 24px 60px -32px rgba(1, 15, 31, 0.55);
+
+  /* Semantic text — AA-safe pairings documented in comments */
+  --text-on-navy: var(--ivory-50); /* ivory on navy ~12:1+ */
+  --text-on-navy-muted: color-mix(in srgb, var(--ivory-50) 72%, var(--navy-800));
+  --text-on-ivory: var(--navy-900); /* navy on ivory ~12:1+ */
+  --text-on-ivory-muted: var(--blue-muted); /* muted blue on ivory ~5.5:1+ */
+  --text-accent-on-navy: var(--gold-300); /* light gold on navy for large/decorative */
+  --text-link-on-ivory: var(--navy-800);
+  --text-link-on-navy: var(--gold-300);
+  /* Error text on ivory/white — ~7:1; never use gold-500 (#CEA15D) as small text on white */
+  --text-error: #8b1a1a;
+  /*
+   * Gold contrast (do not use as ordinary small text on light surfaces):
+   * - gold-500 #CEA15D on white/ivory ≈ 2.2–2.4:1 FAIL AA
+   * - gold-300 on white/ivory ≈ 1.4–1.5:1 FAIL AA
+   * - gold-300 / gold-500 on navy ≈ 7.8–12:1 PASS
+   * - navy-950 on gold-500 fill (CTA) ≈ 7.8:1 PASS
+   */
+
+  /* Borders & dividers */
+  --border-on-navy: color-mix(in srgb, var(--gold-500) 35%, transparent);
+  --border-on-ivory: color-mix(in srgb, var(--navy-800) 18%, transparent);
+  --border-strong-ivory: color-mix(in srgb, var(--navy-800) 28%, transparent);
+
+  /* Focus (WCAG 2.2 visible focus) */
+  --focus-ring-on-navy: var(--gold-300);
+  --focus-ring-on-ivory: var(--navy-800);
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 3px;
+
+  /* Radii — calm, slightly softer for luxury */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.625rem;
+
+  /* Spacing scale (generous whitespace) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Layout */
+  --container-max: 72rem;
+  --container-narrow: 42rem;
+  --header-height: 4.25rem;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 150ms;
+  --duration-base: 220ms;
+  --duration-slow: 400ms;
+
+  /* Defaults for light content surfaces */
+  --background: var(--surface-ivory);
+  --foreground: var(--text-on-ivory);
+}

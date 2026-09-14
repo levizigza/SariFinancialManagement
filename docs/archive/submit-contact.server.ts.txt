@@ -1,0 +1,122 @@
+"use server";
+
+import { headers } from "next/headers";
+import {
+  CONTACT_RATE_LIMIT_MESSAGE,
+  checkContactRateLimit,
+} from "@/lib/contact/rate-limit";
+import {
+  SENSITIVE_CONTENT_MESSAGE,
+  contactFormSchema,
+  looksLikeSensitiveContent,
+} from "@/lib/contact/schema";
+import { sendContactMessage } from "@/lib/contact/send";
+
+export type ContactActionState = {
+  ok: boolean;
+  message: string;
+  fieldErrors?: Partial<
+    Record<"name" | "email" | "phone" | "service" | "message", string>
+  >;
+};
+
+const GENERIC_FAILURE =
+  "We could not send your message right now. Please try again shortly, or contact us by phone or email.";
+
+function clientKey(headerStore: Headers): string {
+  const forwarded = headerStore.get("x-forwarded-for");
+  if (forwarded) {
+    return forwarded.split(",")[0]?.trim() || "unknown";
+  }
+  return headerStore.get("x-real-ip") ?? "unknown";
+}
+
+/**
+ * Origin check for Server Actions (defense in depth alongside Next.js CSRF).
+ */
+function isAllowedOrigin(headerStore: Headers): boolean {
+  const origin = headerStore.get("origin");
+  const host = headerStore.get("host");
+  if (!origin || !host) {
+    // Same-origin navigations / some clients may omit Origin; allow when Host is present
+    // and Origin is missing (Server Actions still carry Next-Action CSRF tokens).
+    return Boolean(host);
+  }
+  try {
+    const originHost = new URL(origin).host;
+    return originHost === host;
+  } catch {
+    return false;
+  }
+}
+
+export async function submitContactForm(
+  _prev: ContactActionState,
+  formData: FormData,
+): Promise<ContactActionState> {
+  const headerStore = await headers();
+
+  if (!isAllowedOrigin(headerStore)) {
+    return { ok: false, message: GENERIC_FAILURE };
+  }
+
+  const rate = checkContactRateLimit(`contact:${clientKey(headerStore)}`);
+  if (!rate.ok) {
+    return { ok: false, message: CONTACT_RATE_LIMIT_MESSAGE };
+  }
+
+  const raw = {
+    name: String(formData.get("name") ?? ""),
+    email: String(formData.get("email") ?? ""),
+    phone: String(formData.get("phone") ?? ""),
+    service: String(formData.get("service") ?? ""),
+    message: String(formData.get("message") ?? ""),
+    website: String(formData.get("website") ?? ""),
+  };
+
+  // Honeypot: pretend success so bots do not learn the field exists.
+  if (raw.website.trim().length > 0) {
+    return {
+      ok: true,
+      message:
+        "Thank you. If your message looks legitimate, we will respond shortly.",
+    };
+  }
+
+  const parsed = contactFormSchema.safeParse(raw);
+  if (!parsed.success) {
+    const fieldErrors: ContactActionState["fieldErrors"] = {};
+    for (const issue of parsed.error.issues) {
+      const key = issue.path[0];
+      if (
+        typeof key === "string" &&
+        ["name", "email", "phone", "service", "message"].includes(key) &&
+        !fieldErrors[key as keyof typeof fieldErrors]
+      ) {
+        fieldErrors[key as keyof typeof fieldErrors] = issue.message;
+      }
+    }
+    return {
+      ok: false,
+      message: "Please correct the highlighted fields and try again.",
+      fieldErrors,
+    };
+  }
+
+  const data = parsed.data;
+  const combined = `${data.name}\n${data.email}\n${data.phone ?? ""}\n${data.message}`;
+  if (looksLikeSensitiveContent(combined)) {
+    return { ok: false, message: SENSITIVE_CONTENT_MESSAGE };
+  }
+
+  const sent = await sendContactMessage(data);
+  if (!sent.ok) {
+    return { ok: false, message: GENERIC_FAILURE };
+  }
+
+  return {
+    ok: true,
+    message:
+      "Thank you. Your message was sent. We will follow up using the contact details you provided.",
+  };
+}

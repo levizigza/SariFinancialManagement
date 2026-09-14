@@ -1,26 +1,433 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "../styles/tokens.css";
 
 @theme inline {
+  /* Colors → Tailwind utilities (bg-navy-950, text-gold-500, etc.) */
+  --color-navy-950: var(--navy-950);
+  --color-navy-900: var(--navy-900);
+  --color-navy-800: var(--navy-800);
+  --color-blue-muted: var(--blue-muted);
+  --color-gold-500: var(--gold-500);
+  --color-gold-300: var(--gold-300);
+  --color-gold-100: var(--gold-100);
+  --color-ivory-50: var(--ivory-50);
+  --color-white: var(--white);
+
+  --color-surface-navy: var(--surface-navy);
+  --color-surface-navy-elevated: var(--surface-navy-elevated);
+  --color-surface-navy-soft: var(--surface-navy-soft);
+  --color-surface-ivory: var(--surface-ivory);
+  --color-surface-white: var(--surface-white);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-text-error: var(--text-error);
+
+  --font-sans: var(--font-sans), "Source Sans 3", system-ui, sans-serif;
+  --font-display: var(--font-display), "Cormorant Garamond", Georgia, serif;
+  --font-script: var(--font-script), "Great Vibes", cursive;
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+
+  --max-width-container: var(--container-max);
+  --max-width-narrow: var(--container-narrow);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ——— Base ——— */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Rem-based type so browser text zoom (200%) scales layout sizes too */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
+  margin: 0;
+  min-height: 100%;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), "Source Sans 3", system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Avoid horizontal clip when users zoom text to 200% */
+  overflow-x: clip;
 }
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.022em;
+  color: inherit;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+p {
+  margin: 0;
+}
+
+/*
+ * Unclassed anchors inherit surrounding text color.
+ * Classed links (buttons, text-link, nav) set their own colors below —
+ * utilities alone lose to `color: inherit` on <a> and become illegible.
+ */
+a:not([class]) {
+  color: inherit;
+}
+
+/*
+ * Button / CTA color locks — never inherit body navy onto navy fills.
+ */
+a.btn-primary,
+button.btn-primary {
+  color: var(--ivory-50) !important;
+}
+
+a.btn-secondary,
+button.btn-secondary,
+a.btn-ghost,
+button.btn-ghost {
+  color: var(--navy-900) !important;
+}
+
+a.btn-on-navy,
+button.btn-on-navy {
+  color: var(--navy-950) !important;
+}
+
+a.btn-on-navy-secondary,
+button.btn-on-navy-secondary {
+  color: var(--ivory-50) !important;
+}
+
+/* Inline text links */
+a.text-link {
+  color: var(--navy-800) !important;
+}
+
+[data-surface="navy"] a.text-link,
+.surface-navy a.text-link {
+  color: var(--gold-300) !important;
+}
+
+/*
+ * Header nav: force light text on navy.
+ */
+.site-header .site-header-nav a:not([class*="btn-"]),
+.site-header .site-header-nav button:not([class*="btn-"]) {
+  color: #ffffff !important;
+}
+
+.site-header .site-header-nav a:not([class*="btn-"]):hover,
+.site-header .site-header-nav button:not([class*="btn-"]):hover,
+.site-header .site-header-nav a[aria-current="page"],
+.site-header .site-header-nav button[aria-expanded="true"] {
+  color: var(--gold-300) !important;
+}
+
+.site-header .site-header-nav a.btn-on-navy {
+  color: var(--navy-950) !important;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* ——— Focus (WCAG 2.2) ——— */
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-on-ivory);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.surface-navy :focus-visible,
+[data-surface="navy"] :focus-visible {
+  outline-color: var(--focus-ring-on-navy);
+}
+
+.surface-ivory :focus-visible,
+.surface-white :focus-visible,
+[data-surface="ivory"] :focus-visible,
+[data-surface="white"] :focus-visible {
+  outline-color: var(--focus-ring-on-ivory);
+}
+
+/* ——— Selection ——— */
+
+::selection {
+  background: color-mix(in srgb, var(--gold-500) 40%, var(--navy-900));
+  color: var(--ivory-50);
+}
+
+.surface-ivory ::selection,
+.surface-white ::selection {
+  background: color-mix(in srgb, var(--navy-800) 22%, var(--gold-300));
+  color: var(--navy-950);
+}
+
+/* ——— Reduced motion ——— */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ——— Utility: skip link ——— */
+
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: 0;
+  z-index: 120;
+  transform: translateY(-120%);
+  padding: var(--space-3) var(--space-4);
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-md);
+  background: var(--gold-300);
+  color: var(--navy-950);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(var(--space-4));
+  outline: var(--focus-ring-width) solid var(--navy-950);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* ——— Decorative gold curve stroke ——— */
+
+.gold-curve-stroke {
+  fill: none;
+  stroke: var(--gold-500);
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  opacity: 0.85;
+}
+
+.gold-curve-stroke--soft {
+  stroke: var(--gold-300);
+  opacity: 0.55;
+}
+
+/* ——— Atmospheric surfaces ——— */
+
+.atmosphere-navy {
+  background-color: var(--navy-950);
+  background-image: var(--surface-navy-wash);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.atmosphere-ivory {
+  background-color: var(--ivory-50);
+  background-image: var(--surface-ivory-wash);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Luxury photo frame — thin champagne edge, soft depth */
+.luxury-frame {
+  border: 1px solid color-mix(in srgb, var(--gold-500) 28%, transparent);
+  box-shadow: var(--shadow-frame);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.luxury-panel {
+  border: 1px solid color-mix(in srgb, var(--navy-800) 10%, transparent);
+  background: color-mix(in srgb, var(--white) 88%, var(--ivory-50));
+  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius-lg);
+}
+
+.section-hairline {
+  position: relative;
+}
+
+.section-hairline::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: min(12rem, 40%);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--gold-500) 55%, transparent),
+    transparent
+  );
+}
+
+[data-surface="navy"].section-hairline::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--gold-300) 45%, transparent),
+    transparent
+  );
+}
+
+/* Quiet reveal for hero / founder panels */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-rise {
+    opacity: 0;
+    transform: translateY(0.75rem);
+    animation: fj-stage-in 0.9s var(--ease-out) forwards;
+  }
+
+  .reveal-rise--delay {
+    animation-delay: 0.18s;
+  }
+
+  .reveal-rise--delay-2 {
+    animation-delay: 0.32s;
+  }
+}
+
+/* ——— Financial journey (signature homepage interaction) ——— */
+
+.financial-journey__path {
+  fill: none;
+  stroke: color-mix(in srgb, var(--gold-500) 72%, transparent);
+  stroke-width: 1.35;
+}
+
+.financial-journey__path--soft {
+  stroke: color-mix(in srgb, var(--gold-300) 28%, transparent);
+  stroke-width: 2.75;
+}
+
+.financial-journey__node {
+  fill: var(--navy-950);
+  stroke: color-mix(in srgb, var(--gold-500) 80%, transparent);
+  stroke-width: 1.25;
+}
+
+/* Progressive enhancement: animate only when motion is allowed */
+@media (prefers-reduced-motion: no-preference) {
+  .financial-journey__path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+
+  .financial-journey__node {
+    opacity: 0;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+
+  [data-motion-mounted="true"][data-motion-in-view="false"] .financial-journey__stage {
+    opacity: 0;
+    transform: translateY(0.85rem);
+  }
+
+  [data-motion-in-view="true"] .financial-journey__path {
+    animation: fj-draw-path 1.7s var(--ease-out) 0.12s forwards;
+  }
+
+  [data-motion-in-view="true"] .financial-journey__path--soft {
+    animation-duration: 1.9s;
+    animation-delay: 0.05s;
+  }
+
+  [data-motion-in-view="true"] .financial-journey__node {
+    animation: fj-node-in 0.55s var(--ease-out) forwards;
+  }
+
+  [data-motion-in-view="true"] .financial-journey__stage {
+    animation: fj-stage-in 0.85s var(--ease-out) forwards;
+  }
+
+  .financial-journey__drift {
+    animation: fj-drift 16s var(--ease-out) infinite alternate;
+    animation-play-state: paused;
+  }
+
+  .financial-journey__drift--delay {
+    animation-delay: 2.5s;
+    animation-duration: 20s;
+  }
+
+  [data-motion-in-view="true"] .financial-journey__drift {
+    animation-play-state: running;
+  }
+}
+
+/* Paint containment for below-fold bands (reduces initial rendering work) */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 40rem;
+}
+
+@keyframes fj-draw-path {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fj-stage-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fj-node-in {
+  from {
+    opacity: 0;
+    transform: scale(0.55);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fj-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-0.5rem, 0.35rem, 0);
+  }
+}
+
