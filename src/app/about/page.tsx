@@ -96,7 +96,7 @@ export default function AboutPage() {
           </div>
 
           <EditorialImage
-            photo={stockPhotos.organizedDesk}
+            photo={stockPhotos.servicesOverview}
             sizes="(max-width: 1024px) 100vw, 42vw"
             className="luxury-frame aspect-[4/5] max-w-md lg:max-w-none lg:justify-self-end"
             showCredit

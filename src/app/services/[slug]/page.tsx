@@ -16,7 +16,7 @@ import {
   site,
 } from "@/lib/site";
 import { buildPageMetadata, getServiceSeo } from "@/lib/seo";
-import { pageHeroPhotos, stockPhotos } from "@/content/stock-media";
+import { pageHeroPhotos, serviceAsidePhotos } from "@/content/stock-media";
 import { EditorialImage } from "@/components/ui/editorial-image";
 
 type PageProps = {
@@ -59,11 +59,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           : pageHeroPhotos.advisory;
 
   const asideImage =
-    service.slug === "tax-services"
-      ? stockPhotos.taxFormsDesk
-      : service.slug === "bookkeeping" || service.slug === "business-advisory"
-        ? stockPhotos.workspaceCalm
-        : stockPhotos.advisoryConversation;
+    serviceAsidePhotos[service.slug as keyof typeof serviceAsidePhotos] ??
+    pageHeroPhotos.services;
 
   return (
     <main id="main-content">

@@ -58,7 +58,7 @@ export default function HomePage() {
       >
         <div className="relative isolate min-h-[min(92vh,52rem)]">
           <EditorialImage
-            photo={stockPhotos.organizedDesk}
+            photo={stockPhotos.consultationDesk}
             priority
             overlay="navy-left"
             sizes="100vw"

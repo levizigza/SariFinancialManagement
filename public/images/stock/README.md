@@ -1,18 +1,30 @@
 # Temporary stock photography
 
-Royalty-free images from [Unsplash](https://unsplash.com/license) used until
+Royalty-free Unsplash photos and editorial desk scenes used until
 Sari Financial Management has approved original photography.
 
 **These images do not depict Sari Goitom Tekle or her clients.**
 
-| File | Typical use | Source |
-|------|-------------|--------|
-| `calgary-skyline.jpg` | Contact / local bands | [Unsplash](https://unsplash.com/photos/S1oGZ9Jt71s) |
-| `advisory-conversation.jpg` | Services, resources, helping | [Unsplash](https://unsplash.com/photos/5fNmWej4tAA) |
-| `organized-desk.jpg` | Hero, FAQ, consultation | [Unsplash](https://unsplash.com/photos/5QgIuuBxKwM) |
-| `workspace-calm.jpg` | About, calm panels | [Unsplash](https://unsplash.com/photos/FHnnjk1Yj7Y) |
-| `tax-forms-t1-t2-t4.jpg` | Tax Services hero / aside | Editorial desk scene with T1, T2, T4 folders |
+| File | Typical use |
+|------|-------------|
+| `calgary-skyline.jpg` | Contact hero; home Calgary band (place) |
+| `organized-desk.jpg` | Home hero; services / resources consultation panels |
+| `advisory-conversation.jpg` | Home “who we help”; about panel; advisory aside |
+| `workspace-calm.jpg` | About hero; home services panel; bookkeeping aside |
+| `bookkeeping-ledgers.jpg` | Bookkeeping hero |
+| `payroll-pay-run.jpg` | Payroll hero |
+| `payroll-pay-slips.jpg` | Payroll aside |
+| `tax-forms-t1-t2-t4.jpg` | Tax Services hero |
+| `tax-paperwork-closeup.jpg` | Tax Services aside |
+| `advisory-reports.jpg` | Business Advisory hero |
+| `services-overview.jpg` | Services hub hero |
+| `resources-learning.jpg` | Resources hero |
+| `faq-support.jpg` | FAQ hero |
+| `privacy-confidential.jpg` | Privacy hero |
 
-Config: `src/content/stock-media.ts` (`stockPhotos`, `pageHeroPhotos`).
+Config: `src/content/stock-media.ts` (`stockPhotos`, `pageHeroPhotos`, `serviceAsidePhotos`).
 
-**Note:** Avoid US Form 1040 stock photos on this Canadian site. Prefer document imagery that matches CRA form types (T1 / T2 / T4) or neutral ledger/paperwork without foreign tax branding.
+**Notes**
+- Avoid US Form 1040 / W-2 stock on this Canadian site.
+- Service heroes and asides are paired so the same photo does not repeat on one page.
+- Calgary skyline may appear in more than one “local” context on purpose.

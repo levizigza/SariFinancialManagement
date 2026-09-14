@@ -48,7 +48,7 @@ export default function ServicesPage() {
               </Text>
             </div>
             <EditorialImage
-              photo={stockPhotos.workspaceCalm}
+              photo={stockPhotos.consultationDesk}
               sizes="(max-width: 1024px) 100vw, 38vw"
               className="luxury-frame aspect-[4/3]"
               showCredit
