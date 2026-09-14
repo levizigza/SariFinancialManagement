@@ -124,6 +124,15 @@ export const pageSeo: Record<string, PageSeoEntry> = {
     h1: "Book a Consultation",
     inSitemap: true,
   },
+  reviews: {
+    path: "/reviews",
+    intent: "Sari Financial Management reviews Calgary",
+    title: "Client Reviews | Sari Financial Management Calgary",
+    description:
+      "Read approved client reviews for Sari Financial Management in Calgary, or submit your own feedback for moderation before publication.",
+    h1: "Client reviews",
+    inSitemap: true,
+  },
   privacy: {
     path: "/privacy",
     intent: "privacy policy",
@@ -214,6 +223,7 @@ export function getSitemapEntries(): {
     "/about": 0.8,
     "/contact": 0.85,
     "/faq": 0.75,
+    "/reviews": 0.7,
     "/resources": 0.8,
     "/privacy": 0.3,
   };

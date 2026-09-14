@@ -11,6 +11,8 @@ export const analyticsEvents = [
   "email_click",
   "contact_form_start",
   "contact_form_submit",
+  "review_form_start",
+  "review_form_submit",
   "service_view_bookkeeping",
   "service_view_payroll",
   "service_view_tax",

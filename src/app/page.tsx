@@ -226,7 +226,12 @@ export default function HomePage() {
 
       <FounderSection variant="compact" showPortrait />
 
-      <TestimonialsSection emptyMode="trust" className="content-visibility-auto" />
+      <TestimonialsSection
+        emptyMode="trust"
+        className="content-visibility-auto"
+        showForm
+        compactSubmit
+      />
 
       <FaqPreviewSection items={getHomepageFaqs(6)} className="content-visibility-auto" />
 

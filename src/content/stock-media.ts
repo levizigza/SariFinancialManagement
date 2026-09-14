@@ -158,6 +158,7 @@ export const pageHeroPhotos = {
   resources: stockPhotos.resourcesLearning,
   faq: stockPhotos.faqSupport,
   privacy: stockPhotos.privacyConfidential,
+  reviews: stockPhotos.advisoryConversation,
 } as const;
 
 /** Service detail asides — never identical to that service’s hero */

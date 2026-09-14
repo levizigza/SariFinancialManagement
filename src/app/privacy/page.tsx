@@ -53,15 +53,22 @@ export default function PrivacyPage() {
             <Text>
               If you use the public contact form, we collect only: your name,
               email address, optional phone number, service of interest, and
-              message. We process submissions on our servers and deliver them to
-              our business inbox through a transactional email provider when
-              configured.
+              message. On this static site host, submissions open a prefilled
+              email draft to our business inbox.
+            </Text>
+            <Text>
+              If you use the review form, we collect your name, email, optional
+              business or role, star rating, review text, and your confirmation
+              that we may contact you about publishing an approved version.
+              Review drafts are sent by email for moderation and are not
+              published automatically.
             </Text>
             <Text>
               We do <strong>not</strong> ask for Social Insurance Numbers,
               banking information, CRA or tax-account passwords, tax documents,
               financial statements, or government ID through the general contact
-              form. Please do not include those details in your message.
+              or review forms. Please do not include those details in your
+              message.
             </Text>
             <Text>
               Sensitive financial documents should only be transmitted using an

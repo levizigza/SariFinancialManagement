@@ -121,6 +121,7 @@ export const primaryNav: readonly NavItem[] = [
   },
   { label: "Resources", href: "/resources" },
   { label: "FAQ", href: "/faq" },
+  { label: "Reviews", href: "/reviews" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
@@ -131,6 +132,7 @@ export const footerNav = {
     { label: "Services", href: "/services" },
     { label: "Resources", href: "/resources" },
     { label: "FAQ", href: "/faq" },
+    { label: "Reviews", href: "/reviews" },
     { label: "Contact", href: "/contact" },
   ],
   services: services.map((service) => ({

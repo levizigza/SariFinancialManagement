@@ -21,6 +21,7 @@ export { ServicesGrid } from "@/components/sections/services-grid";
 export { ServiceIcon } from "@/components/brand/service-icon";
 export { TestimonialCard } from "@/components/sections/testimonial-card";
 export { TestimonialsSection } from "@/components/sections/testimonials-section";
+export { ReviewForm } from "@/components/sections/review-form";
 export { AuthorByline } from "@/components/insights/author-byline";
 export { InsightCategoryCard } from "@/components/insights/category-card";
 export { InsightTopicCard } from "@/components/insights/topic-card";
