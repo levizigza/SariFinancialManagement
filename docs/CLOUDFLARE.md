@@ -24,10 +24,11 @@ GitHub repo: https://github.com/levizigza/SariFinancialManagement
 |-------|--------|
 | Project name | `sarifinancial` |
 | Production branch | `master` (or `main`) |
-| Build command | `npm ci && npm run build` |
+| Framework preset | **None** (not Next.js) |
+| Build command | `npm run build:cloudflare` |
 | Build output directory | `out` |
 | Root directory | `/` |
-| Environment variables | `NEXT_PUBLIC_STATIC_EXPORT=true` |
+| Environment variables | `NEXT_PUBLIC_STATIC_EXPORT=true` (also set in the npm script) |
 | | `NEXT_PUBLIC_SITE_URL=https://sarifinancial.com` |
 | Compatibility / Node | Node `20` |
 

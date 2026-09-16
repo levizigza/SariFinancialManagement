@@ -21,8 +21,8 @@ Production hosts on **Cloudflare Pages** at https://sarifinancial.com.
 
 | Setting | Value |
 |--------|--------|
-| Framework preset | None |
-| Build command | `npm ci && npm run build` |
+| Framework preset | **None** (do not choose Next.js) |
+| Build command | `npm run build:cloudflare` |
 | Output directory | `out` |
 | Root directory | `/` |
 | Node version | `20` |

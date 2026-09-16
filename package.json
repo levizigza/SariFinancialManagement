@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:cloudflare": "NEXT_PUBLIC_STATIC_EXPORT=true NEXT_PUBLIC_SITE_URL=https://sarifinancial.com next build",
     "start": "next start",
     "lint": "eslint"
   },

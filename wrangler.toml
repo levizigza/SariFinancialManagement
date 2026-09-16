@@ -1,0 +1,5 @@
+# Cloudflare Pages — static export of the Next.js site (`out/`).
+# Do not use the Workers "npx wrangler deploy" flow for this project.
+name = "sarifinancial"
+compatibility_date = "2025-09-16"
+pages_build_output_dir = "out"

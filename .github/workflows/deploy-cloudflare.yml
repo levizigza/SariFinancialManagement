@@ -29,10 +29,7 @@ jobs:
         run: npm ci
 
       - name: Build static site (domain root — no GitHub Pages basePath)
-        run: npm run build
-        env:
-          NEXT_PUBLIC_STATIC_EXPORT: "true"
-          NEXT_PUBLIC_SITE_URL: https://sarifinancial.com
+        run: npm run build:cloudflare
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
