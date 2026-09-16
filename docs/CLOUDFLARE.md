@@ -59,10 +59,10 @@ GitHub repo: https://github.com/levizigza/SariFinancialManagement
 |--------|--------|
 | `CLOUDFLARE_API_TOKEN` | the token from step 1 |
 | `CLOUDFLARE_ACCOUNT_ID` | `abb8a575489689ede076646897c8c94b` |
-| `CLOUDFLARE_PAGES_PROJECT_NAME` | `sarifinancial` (optional; this is the workflow default) |
 
 3. Push to `master`/`main` or run **Deploy Cloudflare Pages** via workflow_dispatch.
-4. If both Cloudflare Git builds and the Action run, disable one path to avoid double deploys.
+4. The Action deploys to project name **`sarifinancial`** (create it in the dashboard first if needed).
+5. If both Cloudflare Git builds and the Action run, disable one path to avoid double deploys.
 
 ## Smoke checks after go-live
 
