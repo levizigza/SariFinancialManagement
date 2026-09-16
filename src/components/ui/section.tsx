@@ -30,7 +30,7 @@ export function Section({
         !useAtmosphere && tone === "navy" && "surface-navy bg-surface-navy text-ivory-50",
         !useAtmosphere && tone === "ivory" && "surface-ivory bg-surface-ivory text-navy-900",
         !useAtmosphere && tone === "white" && "surface-white bg-surface-white text-navy-900",
-        spacious ? "py-24 sm:py-32 lg:py-36" : "py-16 sm:py-20 lg:py-24",
+        spacious ? "py-20 sm:py-28 lg:py-36" : "py-14 sm:py-16 lg:py-24",
         className,
       )}
       {...props}

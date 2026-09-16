@@ -56,46 +56,47 @@ export default function HomePage() {
         spacious
         className="overflow-hidden !pt-0 !pb-0"
       >
-        <div className="relative isolate min-h-[min(92vh,52rem)]">
+        <div className="relative isolate home-hero-media min-h-[min(88dvh,48rem)] sm:min-h-[min(92vh,52rem)]">
           <EditorialImage
             photo={stockPhotos.consultationDesk}
             priority
             overlay="navy-left"
             sizes="100vw"
             className="absolute inset-0 h-full w-full"
-            imgClassName="object-[68%_center] sm:object-[72%_center] scale-105"
+            imgClassName="object-[62%_center] sm:object-[68%_center] md:object-[72%_center] scale-105"
             showCredit
           />
-          {/* Soft veil — photo stays visible; text stays crisp on the left */}
+          {/* Soft veil — stronger on small screens for text contrast */}
           <div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-br from-navy-950/22 via-transparent to-gold-500/[0.05]"
+            className="hero-media-veil pointer-events-none absolute inset-0 bg-gradient-to-br from-navy-950/22 via-transparent to-gold-500/[0.05]"
             aria-hidden
           />
 
-          <Container className="relative z-10 grid items-center gap-10 py-16 sm:py-20 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-14 lg:py-24">
-            <div className="max-w-xl space-y-7 reveal-rise">
+          <Container className="relative z-10 grid items-center gap-8 py-12 sm:gap-10 sm:py-20 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-14 lg:py-24">
+            <div className="max-w-xl min-w-0 space-y-5 sm:space-y-7 reveal-rise">
               <Eyebrow>More Than Numbers · Calgary</Eyebrow>
 
               <Heading
                 as="h1"
                 size="display"
-                className="text-ivory-50 max-w-[16ch] !leading-[1.08]"
+                className="text-ivory-50 max-w-[16ch] !leading-[1.08] text-pretty"
               >
                 {pageSeo.home.h1}
               </Heading>
 
-              <GoldCurveAccent variant="arc" className="w-32 sm:w-40" />
+              <GoldCurveAccent variant="arc" className="w-28 sm:w-40" />
 
-              <Text size="lg" className="text-ivory-50/90 max-w-lg">
+              <Text size="lg" className="text-ivory-50/90 max-w-lg text-pretty">
                 Bookkeeping, payroll, tax services, and business advisory—organized
                 support so you can decide with clearer information.
               </Text>
 
-              <div className="flex flex-wrap gap-3 pt-1">
+              <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap">
                 <ButtonLink
                   href={site.cta.href}
                   variant="onNavy"
                   size="lg"
+                  className="w-full sm:w-auto"
                   {...analyticsClickAttrs("book_consultation_click", "home_hero")}
                 >
                   Book a Consultation
@@ -104,6 +105,7 @@ export default function HomePage() {
                   href="/services"
                   variant="onNavySecondary"
                   size="lg"
+                  className="w-full sm:w-auto"
                 >
                   Explore Our Services
                 </ButtonLink>

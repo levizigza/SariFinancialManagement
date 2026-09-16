@@ -46,7 +46,12 @@ export function PageHero({
       spacious={!image}
       className={cn("overflow-hidden", image && "!py-0", className)}
     >
-      <div className={cn("relative isolate", image && "min-h-[min(70vh,34rem)]")}>
+      <div
+        className={cn(
+          "relative isolate",
+          image && "page-hero-media min-h-[min(68dvh,32rem)] sm:min-h-[min(70vh,34rem)]",
+        )}
+      >
         {image ? (
           <>
             <EditorialImage
@@ -59,7 +64,7 @@ export function PageHero({
               showCredit
             />
             <div
-              className="pointer-events-none absolute inset-0 bg-gradient-to-br from-navy-950/28 via-transparent to-gold-500/[0.06]"
+              className="hero-media-veil pointer-events-none absolute inset-0 bg-gradient-to-br from-navy-950/28 via-transparent to-gold-500/[0.06]"
               aria-hidden
             />
           </>
@@ -75,18 +80,19 @@ export function PageHero({
         <Container
           className={cn(
             "relative z-10",
-            image && "flex min-h-[min(70vh,34rem)] items-end py-16 sm:py-20 lg:py-24",
+            image &&
+              "flex min-h-[min(68dvh,32rem)] items-end py-12 sm:min-h-[min(70vh,34rem)] sm:py-20 lg:py-24",
           )}
         >
-          <div className="relative max-w-2xl space-y-5 reveal-rise">
+          <div className="relative max-w-2xl min-w-0 space-y-4 sm:space-y-5 reveal-rise">
             {breadcrumbs && breadcrumbs.length > 0 && (
-              <Breadcrumbs items={breadcrumbs} className="mb-2" />
+              <Breadcrumbs items={breadcrumbs} className="mb-1 sm:mb-2" />
             )}
             {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
             <Heading
               as="h1"
               size="display"
-              className="text-ivory-50 !tracking-[-0.025em]"
+              className="text-ivory-50 !tracking-[-0.025em] text-pretty"
             >
               {title}
             </Heading>
@@ -95,18 +101,19 @@ export function PageHero({
                 {site.brandPhrase}
               </BrandPhrase>
             )}
-            <GoldCurveAccent variant="arc" className="w-40" />
+            <GoldCurveAccent variant="arc" className="w-28 sm:w-40" />
             {description && (
-              <Text size="lg" className="text-ivory-50/85 max-w-xl">
+              <Text size="lg" className="text-ivory-50/85 max-w-xl text-pretty">
                 {description}
               </Text>
             )}
             {showCta && (
-              <div className="pt-2">
+              <div className="flex flex-wrap gap-3 pt-2">
                 <ButtonLink
                   href={site.cta.href}
                   variant="onNavy"
                   size="lg"
+                  className="w-full sm:w-auto"
                   {...analyticsClickAttrs("book_consultation_click", "page_hero")}
                 >
                   {site.cta.label}

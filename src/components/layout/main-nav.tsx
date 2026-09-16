@@ -155,14 +155,14 @@ function ServicesDropdown({ item }: { item: NavItem }) {
 
 function DesktopNav() {
   return (
-    <nav aria-label="Primary" className="site-header-nav hidden pl-4 lg:block xl:pl-8">
+    <nav aria-label="Primary" className="site-header-nav hidden pl-2 xl:block xl:pl-6 2xl:pl-8">
       <ul className="m-0 flex list-none items-center gap-0.5 p-0">
         {primaryNav.map((item) =>
           item.children ? (
             <ServicesDropdown key={item.href} item={item} />
           ) : (
             <li key={item.href}>
-              <NavLink href={item.href} className="h-11 px-3">
+              <NavLink href={item.href} className="h-11 px-2.5 2xl:px-3">
                 {item.label}
               </NavLink>
             </li>
@@ -241,13 +241,13 @@ export function MainNav() {
   }, [mobileOpen, closeMobile]);
 
   return (
-    <div className="site-header-nav flex flex-1 items-center gap-3 lg:gap-6">
+    <div className="site-header-nav flex flex-1 items-center gap-2 sm:gap-3 xl:gap-5">
       <DesktopNav />
 
-      <div className="ml-auto flex items-center gap-3 lg:gap-4">
+      <div className="ml-auto flex items-center gap-2 sm:gap-3 xl:gap-4">
         <a
           href={site.phoneHref}
-          className="hidden min-h-11 items-center rounded-sm font-sans text-sm font-semibold text-white no-underline transition-colors hover:text-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300 lg:inline-flex"
+          className="hidden min-h-11 items-center rounded-sm font-sans text-sm font-semibold text-white no-underline transition-colors hover:text-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300 xl:inline-flex"
           {...analyticsClickAttrs("phone_click", "header")}
         >
           {site.phoneDisplay}
@@ -256,7 +256,7 @@ export function MainNav() {
           href={site.cta.href}
           variant="onNavy"
           size="sm"
-          className="hidden lg:inline-flex"
+          className="hidden xl:inline-flex"
           {...analyticsClickAttrs("book_consultation_click", "header")}
         >
           {site.cta.label}
@@ -266,7 +266,7 @@ export function MainNav() {
           href={site.cta.href}
           variant="onNavy"
           size="sm"
-          className="lg:hidden max-[380px]:px-3"
+          className="xl:hidden max-[380px]:px-3"
           aria-label={site.cta.label}
           {...analyticsClickAttrs("book_consultation_click", "header_mobile")}
         >
@@ -280,7 +280,7 @@ export function MainNav() {
           type="button"
           ref={menuButtonRef}
           id={menuButtonId}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-md text-white lg:hidden hover:text-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300"
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-white xl:hidden hover:text-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300"
           aria-expanded={mobileOpen}
           aria-controls={panelId}
           aria-haspopup="dialog"
@@ -303,7 +303,7 @@ export function MainNav() {
         <div
           ref={panelRef}
           id={panelId}
-          className="fixed inset-0 z-[110] lg:hidden bg-navy-950 text-ivory-50 flex flex-col"
+          className="fixed inset-0 z-[110] xl:hidden bg-navy-950 text-ivory-50 flex flex-col pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)]"
           role="dialog"
           aria-modal="true"
           aria-label="Site menu"

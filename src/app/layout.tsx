@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { AnalyticsScripts } from "@/components/analytics/analytics-scripts";
 import { SkipLink } from "@/components/layout/skip-link";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -14,6 +14,18 @@ import { site } from "@/lib/site";
 import "./globals.css";
 
 const googleSiteVerification = getGoogleSiteVerification();
+
+/** Explicit viewport for phones, tablets, desktops, and notched devices */
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f6f2e9" },
+    { media: "(prefers-color-scheme: dark)", color: "#010f1f" },
+  ],
+  colorScheme: "light",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

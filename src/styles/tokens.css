@@ -108,6 +108,14 @@
   --container-max: 72rem;
   --container-narrow: 42rem;
   --header-height: 4.25rem;
+  --page-gutter: clamp(1rem, 0.65rem + 1.6vw, 2.5rem);
+  --section-y: clamp(3.5rem, 2.5rem + 3vw, 6rem);
+  --section-y-spacious: clamp(4.5rem, 3rem + 5vw, 9rem);
+
+  /* Fluid type — scales across ~320px–1440px without jumping awkwardly */
+  --type-display: clamp(2.125rem, 1.35rem + 3.4vw, 3.75rem);
+  --type-xl: clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem);
+  --type-lg: clamp(1.5rem, 1.25rem + 1.1vw, 1.875rem);
 
   /* Motion */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);

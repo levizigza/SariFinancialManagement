@@ -28,11 +28,12 @@ export function CtaBand({
           {title}
         </Heading>
         <Text className="relative text-ivory-50/75 mx-auto sm:mx-0">{description}</Text>
-        <div className="relative flex flex-wrap justify-center sm:justify-start gap-3">
+        <div className="relative flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-start justify-center">
           <ButtonLink
             href={site.cta.href}
             variant="onNavy"
             size="lg"
+            className="w-full sm:w-auto"
             {...analyticsClickAttrs("book_consultation_click", "cta_band")}
           >
             {site.cta.label}
@@ -41,6 +42,7 @@ export function CtaBand({
             href={site.phoneHref}
             variant="onNavySecondary"
             size="lg"
+            className="w-full sm:w-auto"
             {...analyticsClickAttrs("phone_click", "cta_band")}
           >
             Call {site.phoneDisplay}

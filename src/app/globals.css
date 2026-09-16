@@ -53,6 +53,7 @@ html {
 body {
   margin: 0;
   min-height: 100%;
+  min-height: 100dvh;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), "Source Sans 3", system-ui, sans-serif;
@@ -62,6 +63,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* Avoid horizontal clip when users zoom text to 200% */
   overflow-x: clip;
+  /* Notch / home-indicator safe areas (iPhone, etc.) */
+  padding-left: env(safe-area-inset-left, 0);
+  padding-right: env(safe-area-inset-right, 0);
 }
 
 h1,
@@ -429,5 +433,44 @@ svg {
   to {
     transform: translate3d(-0.5rem, 0.35rem, 0);
   }
+}
+
+/* ——— Cross-device polish ——— */
+
+/* Sticky header respects notch / Dynamic Island */
+.site-header {
+  padding-top: env(safe-area-inset-top, 0);
+}
+
+/* Keep forms readable on iOS (avoid auto-zoom when font-size < 16px) */
+input,
+select,
+textarea {
+  font-size: 1rem;
+}
+
+/* Tighter heroes on short phones / landscape */
+@media (max-height: 520px) {
+  .page-hero-media,
+  .home-hero-media {
+    min-height: min(100dvh, 28rem) !important;
+  }
+}
+
+/* Extra navy veil on small screens so hero copy stays crisp over photography */
+@media (max-width: 639px) {
+  .hero-media-veil {
+    background: linear-gradient(
+      180deg,
+      rgba(1, 15, 31, 0.55) 0%,
+      rgba(1, 15, 31, 0.42) 45%,
+      rgba(1, 15, 31, 0.72) 100%
+    ) !important;
+  }
+}
+
+/* Prevent grid children from forcing horizontal overflow */
+.breakout-safe {
+  min-width: 0;
 }
 

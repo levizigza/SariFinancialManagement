@@ -9,9 +9,9 @@ type HeadingProps = React.ComponentProps<"h1"> & {
 
 const sizeClasses = {
   display:
-    "text-[2.5rem] sm:text-5xl lg:text-[3.75rem] font-semibold tracking-[-0.02em]",
-  xl: "text-3xl sm:text-4xl lg:text-[2.75rem] font-semibold tracking-tight",
-  lg: "text-2xl sm:text-3xl font-semibold",
+    "text-[var(--type-display)] font-semibold tracking-[-0.02em] leading-[1.08]",
+  xl: "text-[var(--type-xl)] font-semibold tracking-tight leading-[1.12]",
+  lg: "text-[var(--type-lg)] font-semibold leading-snug",
   md: "text-xl sm:text-2xl font-semibold",
   sm: "text-lg sm:text-xl font-semibold",
 };

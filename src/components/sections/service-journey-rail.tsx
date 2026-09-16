@@ -20,7 +20,7 @@ export function ServiceJourneyRail({
       <div className="relative">
         {/* Continuous path on desktop */}
         <svg
-          className="pointer-events-none absolute left-[6%] right-[6%] top-[1.35rem] hidden h-3 w-[88%] sm:block"
+          className="pointer-events-none absolute left-[6%] right-[6%] top-[1.35rem] hidden h-3 w-[88%] lg:block"
           viewBox="0 0 1000 12"
           preserveAspectRatio="none"
           aria-hidden
@@ -37,7 +37,7 @@ export function ServiceJourneyRail({
 
         <ol
           className={cn(
-            "relative m-0 flex list-none flex-col gap-4 p-0 sm:flex-row sm:items-start sm:gap-0",
+            "relative m-0 grid list-none grid-cols-1 gap-4 p-0 sm:grid-cols-2 sm:gap-6 lg:flex lg:flex-row lg:items-start lg:gap-0",
           )}
           aria-label="Optional service progression from organize to plan"
         >
@@ -45,14 +45,14 @@ export function ServiceJourneyRail({
             <li
               key={service.slug}
               className={cn(
-                "relative flex min-w-0 flex-1 flex-col items-start sm:items-center sm:text-center",
-                !compact && "sm:px-2",
+                "relative flex min-w-0 flex-1 flex-col items-start sm:items-start lg:items-center lg:text-center",
+                !compact && "lg:px-2",
               )}
             >
               <Link
                 href={service.href}
                 className={cn(
-                  "group flex min-h-11 w-full flex-col gap-2 no-underline sm:items-center",
+                  "group flex min-h-11 w-full flex-col gap-2 no-underline lg:items-center",
                   "rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-800",
                   compact ? "py-1" : "py-1",
                 )}

@@ -56,7 +56,7 @@ export function Breadcrumbs({
                 {item.href && !isLast ? (
                   <Link
                     href={item.href}
-                    className="inline-flex min-h-11 items-center text-ivory-50 no-underline hover:text-gold-300 transition-colors [[data-surface=ivory]_&]:text-navy-800 [[data-surface=ivory]_&]:hover:text-navy-900 [[data-surface=white]_&]:text-navy-800 [[data-surface=white]_&]:hover:text-navy-900 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300 [[data-surface=ivory]_&]:focus-visible:outline-navy-800 [[data-surface=white]_&]:focus-visible:outline-navy-800"
+                    className="inline-flex min-h-9 items-center text-ivory-50 no-underline hover:text-gold-300 transition-colors [[data-surface=ivory]_&]:text-navy-800 [[data-surface=ivory]_&]:hover:text-navy-900 [[data-surface=white]_&]:text-navy-800 [[data-surface=white]_&]:hover:text-navy-900 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300 [[data-surface=ivory]_&]:focus-visible:outline-navy-800 [[data-surface=white]_&]:focus-visible:outline-navy-800"
                   >
                     {item.label}
                   </Link>

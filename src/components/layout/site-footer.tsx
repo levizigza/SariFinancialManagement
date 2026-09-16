@@ -20,7 +20,7 @@ export function SiteFooter({ className }: SiteFooterProps) {
       <Container className="py-14 sm:py-16">
         <GoldCurveAccent soft variant="flourish" className="mb-8 w-48 opacity-90" />
 
-        <div className="grid gap-10 lg:grid-cols-[1.35fr_1fr_1fr_1fr]">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.35fr_1fr_1fr_1fr]">
           <div className="space-y-3">
             <p className="m-0 font-display text-2xl font-semibold tracking-tight text-ivory-50">
               {site.name}
