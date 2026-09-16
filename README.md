@@ -22,12 +22,14 @@ Production hosts on **Cloudflare Pages** at https://sarifinancial.com.
 | Setting | Value |
 |--------|--------|
 | Framework preset | **None** (do not choose Next.js) |
-| Build command | `npm run build:cloudflare` |
+| Build command | `npx next build` (or `npm run build`) |
 | Output directory | `out` |
-| Root directory | `/` |
+| Root directory | *(leave blank)* |
 | Node version | `20` |
 
-**Environment variables**
+Cloudflare sets `CF_PAGES=1` automatically. [`next.config.ts`](next.config.ts) turns on `output: "export"` when that is present, so the `out/` folder is created even if dashboard env vars are empty.
+
+Optional env vars (Production):
 
 ```text
 NEXT_PUBLIC_STATIC_EXPORT=true

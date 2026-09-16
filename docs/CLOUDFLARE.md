@@ -25,12 +25,14 @@ GitHub repo: https://github.com/levizigza/SariFinancialManagement
 | Project name | `sarifinancial` |
 | Production branch | `master` (or `main`) |
 | Framework preset | **None** (not Next.js) |
-| Build command | `npm run build:cloudflare` |
+| Build command | `npx next build` |
 | Build output directory | `out` |
-| Root directory | `/` |
-| Environment variables | `NEXT_PUBLIC_STATIC_EXPORT=true` (also set in the npm script) |
-| | `NEXT_PUBLIC_SITE_URL=https://sarifinancial.com` |
+| Root directory | *(leave the field blank — do not type anything)* |
+| Environment variables | optional: `NEXT_PUBLIC_SITE_URL=https://sarifinancial.com` |
 | Compatibility / Node | Node `20` |
+
+`CF_PAGES=1` is set by Cloudflare automatically; the Next config enables static export when it sees that flag, so `out/` is produced without extra dashboard env vars.
+
 
 5. Save and deploy. Confirm the `*.pages.dev` URL works before attaching the custom domain.
 

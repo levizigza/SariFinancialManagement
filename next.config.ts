@@ -2,11 +2,16 @@ import type { NextConfig } from "next";
 
 /**
  * GitHub Pages (project site) needs a static export + repository basePath.
- * Local / Vercel-style Node hosting can omit GITHUB_PAGES and keep the server build.
+ * Cloudflare Pages sets CF_PAGES=1 and should also static-export to `out/`
+ * (domain root — no basePath).
+ * Local / Vercel-style Node hosting can omit those flags and keep the server build.
  */
 const isGithubPages = process.env.GITHUB_PAGES === "true";
+const isCloudflarePages = process.env.CF_PAGES === "1";
 const isStaticExport =
-  isGithubPages || process.env.NEXT_PUBLIC_STATIC_EXPORT === "true";
+  isGithubPages ||
+  isCloudflarePages ||
+  process.env.NEXT_PUBLIC_STATIC_EXPORT === "true";
 const repoBasePath =
   process.env.NEXT_PUBLIC_BASE_PATH?.replace(/\/$/, "") ||
   "/SariFinancialManagement";
@@ -16,6 +21,13 @@ if (isGithubPages && !process.env.NEXT_PUBLIC_BASE_PATH) {
   process.env.NEXT_PUBLIC_BASE_PATH = repoBasePath;
 }
 
+// Cloudflare Pages builds often have no dashboard env vars set yet.
+if (isCloudflarePages && !process.env.NEXT_PUBLIC_SITE_URL) {
+  process.env.NEXT_PUBLIC_SITE_URL = "https://sarifinancial.com";
+}
+if (isCloudflarePages && !process.env.NEXT_PUBLIC_STATIC_EXPORT) {
+  process.env.NEXT_PUBLIC_STATIC_EXPORT = "true";
+}
 /**
  * Security headers supported on typical Next.js hosts (Vercel, Node).
  * Ignored for `output: "export"` (static hosts cannot apply these via Next).
