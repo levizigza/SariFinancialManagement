@@ -2,6 +2,8 @@
 
 Official website for **Sari Financial Management** (Calgary, Alberta).
 
+**Production domain:** https://sarifinancial.com
+
 ## Local development
 
 ```bash
@@ -11,12 +13,62 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## GitHub Pages
+## Cloudflare Pages (production)
 
-This repo deploys a static export with GitHub Actions:
+Production hosts on **Cloudflare Pages** at https://sarifinancial.com.
+
+### Build settings (dashboard or CI)
+
+| Setting | Value |
+|--------|--------|
+| Framework preset | None |
+| Build command | `npm ci && npm run build` |
+| Output directory | `out` |
+| Root directory | `/` |
+| Node version | `20` |
+
+**Environment variables**
+
+```text
+NEXT_PUBLIC_STATIC_EXPORT=true
+NEXT_PUBLIC_SITE_URL=https://sarifinancial.com
+```
+
+Do **not** set `GITHUB_PAGES` or `NEXT_PUBLIC_BASE_PATH` for Cloudflare — the site must deploy at the domain root (not `/SariFinancialManagement`).
+
+Static security/cache headers: [`public/_headers`](public/_headers).
+
+### GitHub Action deploy
+
+Workflow: [`.github/workflows/deploy-cloudflare.yml`](.github/workflows/deploy-cloudflare.yml)
+
+Repo secrets required:
+
+- `CLOUDFLARE_API_TOKEN` — token with **Cloudflare Pages — Edit**
+- `CLOUDFLARE_ACCOUNT_ID` — `abb8a575489689ede076646897c8c94b`
+
+The workflow publishes to Pages project name **`sarifinancial`** (create that project in the dashboard first, or let the first deploy create it via the Action).
+
+### Dashboard: attach sarifinancial.com
+
+Account: [Cloudflare dashboard](https://dash.cloudflare.com/abb8a575489689ede076646897c8c94b) (domain is already on Cloudflare Registrar).
+
+1. **Workers & Pages → Create → Connect to Git** → `levizigza/SariFinancialManagement`  
+   (or rely on the GitHub Action above once secrets exist).
+2. Apply the build settings and env vars in the table above.
+3. **Custom domains** → add `sarifinancial.com` and `www.sarifinancial.com`.
+4. **SSL/TLS** → Full (Strict) when the Pages cert is active; enable **Always Use HTTPS**.
+5. **Redirect Rule** → redirect `www.sarifinancial.com` → `https://sarifinancial.com` (apex).
+6. Confirm https://sarifinancial.com loads images and routes without a `/SariFinancialManagement` prefix.
+
+## GitHub Pages (preview backup)
+
+This repo can still deploy a static export with GitHub Actions:
 
 - Workflow: `.github/workflows/deploy-pages.yml`
-- Live URL: https://levizigza.github.io/SariFinancialManagement/
+- Preview URL: https://levizigza.github.io/SariFinancialManagement/
+
+That build **does** set `GITHUB_PAGES` + `basePath=/SariFinancialManagement`. Keep it for backup until Cloudflare is confirmed live.
 
 In the GitHub repo: **Settings → Pages → Source → GitHub Actions**.
 

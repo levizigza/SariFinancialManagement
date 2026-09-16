@@ -78,7 +78,7 @@ export default function OpenGraphImage() {
           }}
         >
           <span>Calgary, Alberta</span>
-          <span>sarifinancialmanagement.com</span>
+          <span>sarifinancial.com</span>
         </div>
       </div>
     ),

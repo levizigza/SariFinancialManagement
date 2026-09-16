@@ -58,7 +58,7 @@ export const stockPhotos = {
     height: 720,
     alt: "Bookkeeping desk with ledger book, receipt tray, calculator, and spreadsheet laptop",
     credit: "Editorial illustration for Sari Financial Management",
-    creditUrl: "https://sarifinancialmanagement.com",
+    creditUrl: "https://sarifinancial.com",
   },
   payrollPayRun: {
     id: "payroll-pay-run",
@@ -67,7 +67,7 @@ export const stockPhotos = {
     height: 720,
     alt: "Payroll desk with pay-run schedule, payroll folder, timesheets, and summary laptop",
     credit: "Editorial illustration for Sari Financial Management",
-    creditUrl: "https://sarifinancialmanagement.com",
+    creditUrl: "https://sarifinancial.com",
   },
   payrollPaySlips: {
     id: "payroll-pay-slips",
@@ -76,7 +76,7 @@ export const stockPhotos = {
     height: 864,
     alt: "Stack of pay slips beside a staff-pay binder and desk calendar",
     credit: "Editorial illustration for Sari Financial Management",
-    creditUrl: "https://sarifinancialmanagement.com",
+    creditUrl: "https://sarifinancial.com",
   },
   taxFormsDesk: {
     id: "tax-forms-desk",
@@ -85,7 +85,7 @@ export const stockPhotos = {
     height: 720,
     alt: "Organized desk with T1, T2, and T4 tax file folders, calculator, and documents",
     credit: "Editorial illustration for Sari Financial Management",
-    creditUrl: "https://sarifinancialmanagement.com",
+    creditUrl: "https://sarifinancial.com",
   },
   taxPaperworkCloseup: {
     id: "tax-paperwork-closeup",
@@ -94,7 +94,7 @@ export const stockPhotos = {
     height: 864,
     alt: "Close-up of Canadian tax folders and calculator on an organized desk",
     credit: "Editorial illustration for Sari Financial Management",
-    creditUrl: "https://sarifinancialmanagement.com",
+    creditUrl: "https://sarifinancial.com",
   },
   advisoryReports: {
     id: "advisory-reports",
@@ -103,7 +103,7 @@ export const stockPhotos = {
     height: 720,
     alt: "Business advisory table with financial summary reports, charts, and planning notes",
     credit: "Editorial illustration for Sari Financial Management",
-    creditUrl: "https://sarifinancialmanagement.com",
+    creditUrl: "https://sarifinancial.com",
   },
   servicesOverview: {
     id: "services-overview",
@@ -112,7 +112,7 @@ export const stockPhotos = {
     height: 720,
     alt: "Four service folders labeled Bookkeeping, Payroll, Tax Services, and Business Advisory",
     credit: "Editorial illustration for Sari Financial Management",
-    creditUrl: "https://sarifinancialmanagement.com",
+    creditUrl: "https://sarifinancial.com",
   },
   resourcesLearning: {
     id: "resources-learning",
@@ -121,7 +121,7 @@ export const stockPhotos = {
     height: 720,
     alt: "Quiet desk with educational booklets, reading glasses, and an insights notebook",
     credit: "Editorial illustration for Sari Financial Management",
-    creditUrl: "https://sarifinancialmanagement.com",
+    creditUrl: "https://sarifinancial.com",
   },
   faqSupport: {
     id: "faq-support",
@@ -130,7 +130,7 @@ export const stockPhotos = {
     height: 720,
     alt: "Support desk with phone, question notepad, and a tablet open to a help article",
     credit: "Editorial illustration for Sari Financial Management",
-    creditUrl: "https://sarifinancialmanagement.com",
+    creditUrl: "https://sarifinancial.com",
   },
   privacyConfidential: {
     id: "privacy-confidential",
@@ -139,7 +139,7 @@ export const stockPhotos = {
     height: 720,
     alt: "Closed confidential folder with a lock stamp beside a muted laptop",
     credit: "Editorial illustration for Sari Financial Management",
-    creditUrl: "https://sarifinancialmanagement.com",
+    creditUrl: "https://sarifinancial.com",
   },
 } as const satisfies Record<string, StockPhoto>;
 

@@ -18,7 +18,7 @@ export const site = {
   phoneHref: "tel:+18259353739",
   email: "sari.financialmanagement@gmail.com",
   emailHref: "mailto:sari.financialmanagement@gmail.com",
-  domain: "sarifinancialmanagement.com",
+  domain: "sarifinancial.com",
   brandPhrase: "More Than Numbers",
   values: ["Clarity", "Trust", "Confidence"] as const,
   supporting: {

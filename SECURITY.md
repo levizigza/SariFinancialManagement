@@ -1,7 +1,7 @@
 # Security — Sari Financial Management website
 
 This document records security and privacy decisions for the public website
-(`sarifinancialmanagement.com`), operated in Calgary, Alberta. It is written for
+(`sarifinancial.com`), operated in Calgary, Alberta. It is written for
 operators and developers, not as legal advice.
 
 ## Scope
