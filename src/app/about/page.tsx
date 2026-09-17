@@ -147,14 +147,14 @@ export default function AboutPage() {
             </Heading>
             <Text>
               Based in {site.location}, we provide bookkeeping, payroll, tax
-              services, and business advisory support. Engagements begin with a
-              consultation so scope and expectations stay clear before work
-              begins.
+              services, GST/HST and CRA support, and financial services.
+              Engagements begin with a consultation so scope and expectations
+              stay clear before work begins.
             </Text>
             <Text muted>
-              This website does not describe {site.name} as a CPA firm. Business
-              advisory means operational and financial clarity support—not
-              investment or securities advice. See our{" "}
+              This website does not describe {site.name} as a CPA firm. Financial
+              services means practical guidance and—where licensed—insurance
+              support, not investment or securities advice. See our{" "}
               <TextLink href="/services">services</TextLink> for what each
               offering covers.
             </Text>

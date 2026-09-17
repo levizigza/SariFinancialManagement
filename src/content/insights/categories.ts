@@ -54,10 +54,10 @@ export const insightCategories: readonly InsightCategory[] = [
   },
   {
     slug: "business-advisory",
-    name: "Business Advisory",
-    shortName: "Advisory",
+    name: "Financial Services",
+    shortName: "Financial",
     description:
-      "Guides on understanding financial reports and using numbers for day-to-day decisions—not investment advice.",
+      "Guides on understanding your financial position, cash flow, and protection planning—not investment advice.",
     href: "/resources/business-advisory",
     serviceHref: "/services/business-advisory",
     jurisdictionFocus: ["Calgary", "Alberta", "Canada"],

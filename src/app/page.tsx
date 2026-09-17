@@ -87,8 +87,9 @@ export default function HomePage() {
               <GoldCurveAccent variant="arc" className="w-28 sm:w-40" />
 
               <Text size="lg" className="text-ivory-50/90 max-w-lg text-pretty">
-                Bookkeeping, payroll, tax services, and business advisory—organized
-                support so you can decide with clearer information.
+                Bookkeeping, payroll, tax, GST/HST, CRA support, and financial
+                services—organized support so you can decide with clearer
+                information.
               </Text>
 
               <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap">
@@ -159,7 +160,7 @@ export default function HomePage() {
               </Heading>
               <Text muted>
                 {site.supporting.journey} Official service names stay the same—Bookkeeping,
-                Payroll, Tax Services, and Business Advisory—framed as a path you can
+                Payroll, Tax Services, and Financial Services—framed as a path you can
                 enter at any point.
               </Text>
             </div>

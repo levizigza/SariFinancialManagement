@@ -43,7 +43,7 @@ export default function ServicesPage() {
               </Heading>
               <Text muted>
                 Organize with Bookkeeping, Operate with Payroll, Prepare with Tax
-                Services, then Understand &amp; Plan with Business Advisory. Start
+                Services, then Understand &amp; Plan with Financial Services. Start
                 where you are; you do not need every stage.
               </Text>
             </div>
@@ -86,7 +86,7 @@ export default function ServicesPage() {
 
       <CtaBand
         title="Looking for financial management support in Calgary?"
-        description="Tell us where you are in the journey—organizing books, running payroll, preparing for tax, or planning with clearer numbers—and we’ll outline a clear scope."
+        description={`${site.supporting.clarity} Tell us where you are—organizing books, running payroll, preparing for tax, or planning with clearer numbers—and we’ll outline a clear scope.`}
       />
     </main>
   );

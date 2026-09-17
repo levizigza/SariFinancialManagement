@@ -110,7 +110,7 @@ export const stockPhotos = {
     src: "/images/stock/services-overview.jpg",
     width: 1280,
     height: 720,
-    alt: "Four service folders labeled Bookkeeping, Payroll, Tax Services, and Business Advisory",
+    alt: "Four service folders labeled Bookkeeping, Payroll, Tax Services, and Financial Services",
     credit: "Editorial illustration for Sari Financial Management",
     creditUrl: "https://sarifinancial.com",
   },

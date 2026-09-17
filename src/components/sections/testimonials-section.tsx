@@ -112,7 +112,7 @@ export function TestimonialsSection({
                 </Heading>
                 <Text muted>
                   Trust starts with a conversation—not manufactured quotes. Ask
-                  about bookkeeping, payroll, tax services, or business advisory,
+                  about bookkeeping, payroll, tax services, or financial services,
                   and we’ll walk you through how engagements work.
                 </Text>
                 <Text className="!mt-1">

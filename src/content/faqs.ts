@@ -43,7 +43,7 @@ export const faqs: readonly FaqItem[] = [
   {
     id: "services",
     question: "What services does Sari Financial Management provide?",
-    answer: `${site.name} provides bookkeeping, payroll, tax services, and business advisory support. Tax services include preparation support for T1 personal returns, T2 corporate returns, and T4 employer slips, plus related Canadian and Alberta filings confirmed in consultation. Business advisory focuses on operational and financial clarity—not investment or securities advice.`,
+    answer: `${site.name} provides bookkeeping, payroll, tax services, GST/HST support, CRA correspondence help, and financial services. Tax services include T1 personal returns, self-employed T1/T2125, T2 corporate returns, and related filings confirmed in consultation. Financial services cover practical financial guidance and—where offered under the appropriate insurance licence—life, critical illness, and disability insurance. This is not investment or securities advice.`,
     homepagePreview: true,
     schemaEligible: true,
   },
@@ -57,7 +57,7 @@ export const faqs: readonly FaqItem[] = [
   {
     id: "who",
     question: "Who does Sari Financial Management work with?",
-    answer: `${site.name} works with individuals and business owners who want clearer, more organized financial information. That includes clients who need help with books, payroll, tax preparation, or practical guidance to understand their numbers for day-to-day decisions.`,
+    answer: `${site.name} works with individuals, families, self-employed professionals, and small-business owners who want clearer, more organized financial information. That includes clients who need help with books, payroll, tax preparation, GST/HST, CRA correspondence, or practical financial guidance and protection planning.`,
     homepagePreview: false,
     schemaEligible: false,
     // TODO(client): confirm preferred audience wording (e.g. specific entity types or industries) if desired
@@ -76,7 +76,7 @@ export const faqs: readonly FaqItem[] = [
     id: "tax-forms",
     question: "Which tax forms do you prepare?",
     answer:
-      "Tax services include T1 personal income tax returns, T2 corporate income tax returns, and T4 employer slips. Related filings that often go with that work—such as Alberta AT1 corporate returns, T2125 for self-employed income on a T1, T4A slips, GST/HST returns, and T5 slips when applicable—are confirmed during your consultation based on your situation.",
+      "Tax services include T1 personal income tax returns, self-employed T1 and T2125 preparation, T2 corporate income tax returns, and T4 employer slips (with payroll). Related work such as GST/HST returns, Alberta AT1 corporate returns, T4A slips, prior-year filings, and CRA letter review is confirmed during your consultation based on your situation.",
     homepagePreview: false,
     schemaEligible: true,
   },
@@ -122,7 +122,7 @@ export const faqs: readonly FaqItem[] = [
     schemaEligible: false,
     needsClientConfirmation: true,
     clientTodo:
-      "Confirm remote / hybrid / in-person policy by service (bookkeeping, payroll, tax, advisory).",
+      "Confirm remote / hybrid / in-person policy by service (bookkeeping, payroll, tax, financial services).",
   },
 ];
 
@@ -131,14 +131,21 @@ export const faqDisclaimers: readonly FaqItem[] = [
   {
     id: "cpa",
     question: "Is Sari Financial Management a CPA firm?",
-    answer: `This website does not describe ${site.name} as a CPA firm. If you need a service that requires a specific professional designation, ask during your consultation so scope can be clarified.`,
+    answer: `This website does not describe ${site.name} as a CPA firm. Complex corporate tax matters can be reviewed or referred to an appropriate tax professional when necessary. If you need a service that requires a specific professional designation, ask during your consultation so scope can be clarified.`,
     schemaEligible: true,
   },
   {
     id: "investment",
     question: "Do you provide investment advice?",
     answer:
-      "No. Business advisory support focuses on operational and financial clarity—understanding books, cash flow, and reporting. It is not investment or securities advice.",
+      "No. Financial services at Sari Financial Management focus on understanding your financial position, organizing cash flow and budgets, reviewing business numbers, and—where licensed—insurance needs. It is not investment or securities advice.",
+    schemaEligible: true,
+  },
+  {
+    id: "insurance",
+    question: "Do you offer life and disability insurance?",
+    answer:
+      "Yes, where offered under the appropriate insurance licence. That can include life insurance needs assessment, term and permanent options, critical illness, disability, and related family or business protection planning. Suitability and availability are confirmed in consultation.",
     schemaEligible: true,
   },
 ];

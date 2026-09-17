@@ -16,7 +16,7 @@ export function buildOrganizationLocalBusinessJsonLd() {
     email: site.email,
     telephone: site.phoneDisplay,
     description:
-      "Financial management services in Calgary, Alberta—bookkeeping, payroll, tax services, and business advisory.",
+      "Financial management services in Calgary, Alberta—bookkeeping, payroll, tax services, GST/HST, CRA support, and financial services.",
     foundingLocation: {
       "@type": "Place",
       name: site.location,

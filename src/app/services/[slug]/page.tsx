@@ -157,7 +157,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         </Container>
       </Section>
 
-      {/* What support may include */}
+      {/* What support may include — grouped areas when available */}
       <Section tone="ivory">
         <Container className="space-y-8 max-w-3xl">
           <div className="space-y-3">
@@ -170,16 +170,52 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               below describe support that may be part of an engagement.
             </Text>
           </div>
-          <ul className="m-0 grid gap-3 sm:grid-cols-2 list-none p-0">
-            {service.mayInclude.map((item) => (
-              <li
-                key={item}
-                className="rounded-md border border-navy-800/12 bg-surface-white px-4 py-3 font-sans text-navy-900 leading-relaxed"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
+
+          {service.serviceAreas && service.serviceAreas.length > 0 ? (
+            <div className="space-y-8">
+              {service.serviceAreas.map((area) => (
+                <div key={area.title} className="space-y-4">
+                  <div className="space-y-2">
+                    <Heading as="h3" size="sm">
+                      {area.title}
+                    </Heading>
+                    {area.description ? (
+                      <Text muted size="sm">
+                        {area.description}
+                      </Text>
+                    ) : null}
+                  </div>
+                  <ul className="m-0 grid gap-3 sm:grid-cols-2 list-none p-0">
+                    {area.items.map((item) => (
+                      <li
+                        key={item}
+                        className="rounded-md border border-navy-800/12 bg-surface-white px-4 py-3 font-sans text-navy-900 leading-relaxed"
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <ul className="m-0 grid gap-3 sm:grid-cols-2 list-none p-0">
+              {service.mayInclude.map((item) => (
+                <li
+                  key={item}
+                  className="rounded-md border border-navy-800/12 bg-surface-white px-4 py-3 font-sans text-navy-900 leading-relaxed"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {service.disclaimer ? (
+            <Text size="sm" muted>
+              {service.disclaimer}
+            </Text>
+          ) : null}
         </Container>
       </Section>
 

@@ -51,7 +51,7 @@ export default function ResourcesPage() {
       <PageHero
         eyebrow={`Resources · ${site.location}`}
         title={pageSeo.resources.h1}
-        description="Educational insights for Calgary and Alberta businesses—organized by bookkeeping, payroll, tax, and business advisory—plus official CRA and Government of Alberta links."
+        description="Educational insights for Calgary and Alberta businesses—organized by bookkeeping, payroll, tax, and financial services—plus official CRA and Government of Alberta links."
         image={pageHeroPhotos.resources}
         breadcrumbs={[
           { label: "Home", href: "/" },

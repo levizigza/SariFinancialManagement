@@ -17,6 +17,6 @@ export const contactServiceLabels: Record<ContactServiceValue, string> = {
   bookkeeping: "Bookkeeping",
   payroll: "Payroll",
   "tax-services": "Tax Services",
-  "business-advisory": "Business Advisory",
+  "business-advisory": "Financial Services",
   general: "General inquiry",
 };

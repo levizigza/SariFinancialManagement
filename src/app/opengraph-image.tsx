@@ -64,7 +64,7 @@ export default function OpenGraphImage() {
               lineHeight: 1.4,
             }}
           >
-            Bookkeeping · Payroll · Tax Services · Business Advisory
+            Bookkeeping · Payroll · Tax Services · Financial Services
           </div>
         </div>
         <div

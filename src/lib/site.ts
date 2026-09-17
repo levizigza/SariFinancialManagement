@@ -27,6 +27,8 @@ export const site = {
     /** Optional progression — not a package requirement */
     journey:
       "From organizing your books to clearer planning—start where you need support.",
+    clarity:
+      "Clarity in your numbers. Confidence in your decisions.",
   },
   cta: {
     label: "Book a Consultation",
