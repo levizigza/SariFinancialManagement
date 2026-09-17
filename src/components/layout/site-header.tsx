@@ -12,13 +12,15 @@ type SiteHeaderProps = {
  * Brand-first sticky header — Sari Financial Management / More Than Numbers first.
  * Phone + consultation CTA stay in the main bar (no separate utility strip).
  * Compact brand label on the narrowest phones so CTA + menu stay usable.
+ * Avoid backdrop-filter here: it creates a containing block that traps
+ * position:fixed descendants (e.g. the mobile menu) inside the header.
  */
 export function SiteHeader({ className }: SiteHeaderProps) {
   return (
     <header
       data-surface="navy"
       className={cn(
-        "site-header surface-navy sticky top-0 z-50 border-b border-gold-500/30 bg-navy-950/95 backdrop-blur-md",
+        "site-header surface-navy sticky top-0 z-50 border-b border-gold-500/30 bg-navy-950/98",
         className,
       )}
     >

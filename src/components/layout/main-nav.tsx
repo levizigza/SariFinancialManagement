@@ -2,7 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from "react";
+import { createPortal } from "react-dom";
 import { ButtonLink } from "@/components/ui/button";
 import { analyticsClickAttrs } from "@/lib/analytics/events";
 import { cn } from "@/lib/cn";
@@ -177,6 +184,7 @@ export function MainNav() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(true);
+  const [portalReady, setPortalReady] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -184,6 +192,10 @@ export function MainNav() {
   const panelId = useId();
 
   const closeMobile = useCallback(() => setMobileOpen(false), []);
+
+  useEffect(() => {
+    setPortalReady(true);
+  }, []);
 
   useEffect(() => {
     closeMobile();
@@ -198,7 +210,8 @@ export function MainNav() {
 
     const main = document.getElementById("main-content");
     const footer = document.querySelector("footer");
-    const inertTargets = [main, footer].filter(
+    const header = document.querySelector("header.site-header");
+    const inertTargets = [main, footer, header].filter(
       (el): el is HTMLElement => el instanceof HTMLElement,
     );
     for (const el of inertTargets) {
@@ -240,6 +253,165 @@ export function MainNav() {
     };
   }, [mobileOpen, closeMobile]);
 
+  const mobileMenu =
+    portalReady && mobileOpen
+      ? createPortal(
+          <div
+            ref={panelRef}
+            id={panelId}
+            className="fixed inset-0 z-[200] flex flex-col bg-navy-950 text-ivory-50 xl:hidden pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)]"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site menu"
+          >
+            <div className="flex items-center justify-between gap-3 border-b border-gold-500/25 px-5 py-3 sm:px-6 sm:py-4">
+              <div className="min-w-0">
+                <p className="m-0 font-display text-lg font-semibold leading-tight">
+                  {site.name}
+                </p>
+                <p className="m-0 mt-0.5 font-sans text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-gold-300">
+                  {site.brandPhrase}
+                </p>
+              </div>
+              <button
+                ref={closeButtonRef}
+                type="button"
+                className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-ivory-50 hover:text-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300"
+                aria-label="Close menu"
+                onClick={closeMobile}
+              >
+                <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                  <path
+                    d="M5 5 L15 15 M15 5 L5 15"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.75"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <nav
+              aria-label="Mobile primary"
+              className="flex-1 overflow-y-auto overscroll-contain px-4 py-4"
+            >
+              <ul className="m-0 flex list-none flex-col gap-1 p-0">
+                {primaryNav.map((item) =>
+                  item.children ? (
+                    <li key={item.href} className="flex flex-col">
+                      <div className="flex items-stretch">
+                        <NavLink
+                          href={item.href}
+                          onNavigate={closeMobile}
+                          className="min-h-12 flex-1 px-3 text-base"
+                        >
+                          {item.label}
+                        </NavLink>
+                        <button
+                          type="button"
+                          aria-expanded={servicesOpen}
+                          aria-controls="mobile-services-submenu"
+                          className="inline-flex min-h-12 w-12 items-center justify-center rounded-md text-ivory-50 hover:text-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300"
+                          onClick={() => setServicesOpen((value) => !value)}
+                        >
+                          <span className="sr-only">Toggle Services submenu</span>
+                          <svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            aria-hidden="true"
+                          >
+                            <path
+                              d={
+                                servicesOpen
+                                  ? "M2.5 7.5 L6 4 L9.5 7.5"
+                                  : "M2.5 4.5 L6 8 L9.5 4.5"
+                              }
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                      <ul
+                        id="mobile-services-submenu"
+                        hidden={!servicesOpen}
+                        className="m-0 mb-2 ml-3 list-none border-l border-gold-500/25 pl-3"
+                      >
+                        {item.children.map((child) => (
+                          <li key={child.href}>
+                            <NavLink
+                              href={child.href}
+                              onNavigate={closeMobile}
+                              className="min-h-12 w-full flex-col items-start justify-center gap-0.5 px-3 py-2 text-base"
+                            >
+                              {child.journeyLabel ? (
+                                <span className="font-sans text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-gold-300/85">
+                                  {child.journeyLabel}
+                                </span>
+                              ) : null}
+                              <span>{child.label}</span>
+                            </NavLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ) : (
+                    <li key={item.href}>
+                      <NavLink
+                        href={item.href}
+                        onNavigate={closeMobile}
+                        className="min-h-12 w-full px-3 text-base"
+                      >
+                        {item.label}
+                      </NavLink>
+                    </li>
+                  ),
+                )}
+              </ul>
+            </nav>
+
+            <div className="space-y-4 border-t border-gold-500/20 p-5 sm:p-6">
+              <div className="space-y-1 font-sans text-sm">
+                <p className="m-0 text-ivory-50/70">{site.location}</p>
+                <p className="m-0">
+                  <a
+                    href={site.phoneHref}
+                    className="inline-flex min-h-11 items-center rounded-sm text-gold-300 no-underline hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300"
+                    {...analyticsClickAttrs("phone_click", "mobile_menu")}
+                  >
+                    {site.phoneDisplay}
+                  </a>
+                </p>
+                <p className="m-0">
+                  <a
+                    href={site.emailHref}
+                    className="inline-flex min-h-11 items-center break-all rounded-sm text-ivory-50 no-underline hover:text-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300"
+                    {...analyticsClickAttrs("email_click", "mobile_menu")}
+                  >
+                    {site.email}
+                  </a>
+                </p>
+              </div>
+              <ButtonLink
+                href={site.cta.href}
+                variant="onNavy"
+                className="w-full"
+                onClick={closeMobile}
+                {...analyticsClickAttrs("book_consultation_click", "mobile_menu")}
+              >
+                {site.cta.label}
+              </ButtonLink>
+            </div>
+          </div>,
+          document.body,
+        )
+      : null;
+
   return (
     <div className="site-header-nav flex flex-1 items-center gap-2 sm:gap-3 xl:gap-5">
       <DesktopNav />
@@ -266,8 +438,12 @@ export function MainNav() {
           href={site.cta.href}
           variant="onNavy"
           size="sm"
-          className="xl:hidden max-[380px]:px-3"
+          className={cn(
+            "xl:hidden max-[380px]:px-3",
+            mobileOpen && "invisible pointer-events-none",
+          )}
           aria-label={site.cta.label}
+          tabIndex={mobileOpen ? -1 : undefined}
           {...analyticsClickAttrs("book_consultation_click", "header_mobile")}
         >
           <span className="sm:hidden" aria-hidden="true">
@@ -280,11 +456,15 @@ export function MainNav() {
           type="button"
           ref={menuButtonRef}
           id={menuButtonId}
-          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-white xl:hidden hover:text-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300"
+          className={cn(
+            "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-white xl:hidden hover:text-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300",
+            mobileOpen && "invisible pointer-events-none",
+          )}
           aria-expanded={mobileOpen}
           aria-controls={panelId}
           aria-haspopup="dialog"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          tabIndex={mobileOpen ? -1 : undefined}
           onClick={() => setMobileOpen((value) => !value)}
         >
           <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
@@ -299,145 +479,7 @@ export function MainNav() {
         </button>
       </div>
 
-      {mobileOpen && (
-        <div
-          ref={panelRef}
-          id={panelId}
-          className="fixed inset-0 z-[110] xl:hidden bg-navy-950 text-ivory-50 flex flex-col pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)]"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Site menu"
-        >
-          <div className="flex items-center justify-between gap-3 border-b border-gold-500/25 px-6 py-4">
-            <p className="font-display text-lg font-semibold m-0">{site.name}</p>
-            <button
-              ref={closeButtonRef}
-              type="button"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-md text-ivory-50 hover:text-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300"
-              aria-label="Close menu"
-              onClick={closeMobile}
-            >
-              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
-                <path
-                  d="M5 5 L15 15 M15 5 L5 15"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.75"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </button>
-          </div>
-
-          <nav aria-label="Mobile primary" className="flex-1 overflow-y-auto px-4 py-4">
-            <ul className="flex flex-col list-none m-0 p-0 gap-1">
-              {primaryNav.map((item) =>
-                item.children ? (
-                  <li key={item.href} className="flex flex-col">
-                    <div className="flex items-stretch">
-                      <NavLink
-                        href={item.href}
-                        onNavigate={closeMobile}
-                        className="flex-1 min-h-12 px-3 text-base"
-                      >
-                        {item.label}
-                      </NavLink>
-                      <button
-                        type="button"
-                        aria-expanded={servicesOpen}
-                        aria-controls="mobile-services-submenu"
-                        className="inline-flex min-h-12 w-12 items-center justify-center rounded-md text-ivory-50 hover:text-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300"
-                        onClick={() => setServicesOpen((value) => !value)}
-                      >
-                        <span className="sr-only">Toggle Services submenu</span>
-                        <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
-                          <path
-                            d={
-                              servicesOpen
-                                ? "M2.5 7.5 L6 4 L9.5 7.5"
-                                : "M2.5 4.5 L6 8 L9.5 4.5"
-                            }
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </button>
-                    </div>
-                    <ul
-                      id="mobile-services-submenu"
-                      hidden={!servicesOpen}
-                      className="list-none m-0 mb-2 ml-3 border-l border-gold-500/25 pl-3"
-                    >
-                      {item.children.map((child) => (
-                        <li key={child.href}>
-                          <NavLink
-                            href={child.href}
-                            onNavigate={closeMobile}
-                            className="min-h-12 w-full flex-col items-start justify-center gap-0.5 px-3 py-2 text-base"
-                          >
-                            {child.journeyLabel ? (
-                              <span className="font-sans text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-gold-300/85">
-                                {child.journeyLabel}
-                              </span>
-                            ) : null}
-                            <span>{child.label}</span>
-                          </NavLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                ) : (
-                  <li key={item.href}>
-                    <NavLink
-                      href={item.href}
-                      onNavigate={closeMobile}
-                      className="min-h-12 w-full px-3 text-base"
-                    >
-                      {item.label}
-                    </NavLink>
-                  </li>
-                ),
-              )}
-            </ul>
-          </nav>
-
-          <div className="border-t border-gold-500/20 p-6 space-y-4">
-            <div className="font-sans text-sm space-y-2">
-              <p className="m-0 text-ivory-50/70">{site.location}</p>
-              <p className="m-0">
-                <a
-                  href={site.phoneHref}
-                  className="inline-flex min-h-11 items-center text-gold-300 no-underline hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300 rounded-sm"
-                  {...analyticsClickAttrs("phone_click", "mobile_menu")}
-                >
-                  {site.phoneDisplay}
-                </a>
-              </p>
-              <p className="m-0">
-                <a
-                  href={site.emailHref}
-                  className="inline-flex min-h-11 items-center text-ivory-50 break-all no-underline hover:text-gold-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300 rounded-sm"
-                  {...analyticsClickAttrs("email_click", "mobile_menu")}
-                >
-                  {site.email}
-                </a>
-              </p>
-            </div>
-            <ButtonLink
-              href={site.cta.href}
-              variant="onNavy"
-              className="w-full"
-              onClick={closeMobile}
-              {...analyticsClickAttrs("book_consultation_click", "mobile_menu")}
-            >
-              {site.cta.label}
-            </ButtonLink>
-          </div>
-        </div>
-      )}
+      {mobileMenu}
     </div>
   );
 }

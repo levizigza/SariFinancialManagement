@@ -72,8 +72,8 @@ export default function HomePage() {
             aria-hidden
           />
 
-          <Container className="relative z-10 grid items-center gap-8 py-12 sm:gap-10 sm:py-20 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-14 lg:py-24">
-            <div className="max-w-xl min-w-0 space-y-5 sm:space-y-7 reveal-rise">
+          <Container className="relative z-10 grid items-center gap-8 py-10 sm:gap-10 sm:py-20 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-14 lg:py-24">
+            <div className="max-w-xl min-w-0 space-y-4 sm:space-y-7 reveal-rise">
               <Eyebrow>More Than Numbers · Calgary</Eyebrow>
 
               <Heading
@@ -86,7 +86,10 @@ export default function HomePage() {
 
               <GoldCurveAccent variant="arc" className="w-28 sm:w-40" />
 
-              <Text size="lg" className="text-ivory-50/90 max-w-lg text-pretty">
+              <Text
+                size="lg"
+                className="text-ivory-50/90 max-w-lg text-pretty !text-base sm:!text-lg md:!text-xl"
+              >
                 Bookkeeping, payroll, tax, GST/HST, CRA support, and financial
                 services—organized support so you can decide with clearer
                 information.
@@ -121,13 +124,13 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="relative mx-auto w-full max-w-sm reveal-rise reveal-rise--delay lg:mx-0 lg:ml-auto lg:max-w-md">
+            <div className="relative mx-auto w-full max-w-[14rem] sm:max-w-sm reveal-rise reveal-rise--delay lg:mx-0 lg:ml-auto lg:max-w-md">
               <FounderPortraitSlot
                 size="hero"
                 priority
                 className="mx-auto border-gold-500/50 shadow-[0_28px_70px_-24px_rgba(0,0,0,0.55)] lg:mr-0"
               />
-              <p className="mt-4 m-0 text-center font-sans text-sm text-ivory-50/80 lg:text-right">
+              <p className="mt-3 sm:mt-4 m-0 text-center font-sans text-sm text-ivory-50/80 lg:text-right">
                 <span className="font-semibold text-ivory-50">{site.founder}</span>
                 <span className="text-ivory-50/45"> · </span>
                 {site.founderTitle}
