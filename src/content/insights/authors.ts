@@ -57,7 +57,7 @@ export const authors: readonly Author[] = [
   {
     id: "sari-goitom-tekle",
     name: "Sari Goitom Tekle",
-    title: "Founder & Financial Advisor",
+    title: "Founder & Business Advisor",
     organization: "Sari Financial Management",
     bio: "Leads client work at Sari Financial Management in Calgary, Alberta—focused on clear communication and organized financial information.",
     email: "sari.financialmanagement@gmail.com",

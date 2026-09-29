@@ -153,8 +153,8 @@ export default function AboutPage() {
             </Text>
             <Text muted>
               This website does not describe {site.name} as a CPA firm. Financial
-              services means practical guidance and—where licensed—insurance
-              support, not investment or securities advice. See our{" "}
+              services means practical guidance and business financial review—not
+              investment or securities advice. See our{" "}
               <TextLink href="/services">services</TextLink> for what each
               offering covers.
             </Text>

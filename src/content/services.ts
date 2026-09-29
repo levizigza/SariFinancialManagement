@@ -5,8 +5,8 @@
  * GST/HST, CRA support, and financial services). Soften with consultation-scope
  * language where deliverables depend on the engagement.
  *
- * Insurance offerings: publish only with licence-aware wording supplied by the
- * client (“where offered under the appropriate insurance licence”).
+ * Insurance offerings are intentionally hidden from public pages for now.
+ * Re-enable only with licence-aware wording supplied by the client.
  *
  * CONFIRMED tax forms: T1, T2, T4. Related forms (T2125, GST/HST, AT1, etc.) are
  * listed as part of the tax practice and confirmed per engagement.
@@ -658,36 +658,36 @@ export const serviceContent: readonly ServiceContent[] = [
     href: "/services/business-advisory",
     journey: serviceJourneyStages[3],
     bestFor:
-      "Individuals, families, and business owners who want clearer financial guidance—and, where licensed, protection planning through insurance.",
-    what: "Financial guidance, business financial review, and insurance solutions based on your needs.",
+      "Individuals, families, and business owners who want clearer financial guidance and a practical review of their numbers.",
+    what: "Financial guidance and business financial review based on your needs.",
     problem:
-      "It is hard to make confident decisions—or protect what you have built—when your financial picture feels unclear.",
+      "It is hard to make confident decisions when your financial picture feels unclear.",
     outcome:
-      "Understand your numbers, protect what you’ve built, and plan with more confidence.",
+      "Understand your numbers and plan with more confidence.",
     summary:
-      "Financial needs reviews, budgeting and cash-flow guidance, business financial review, and life / critical illness / disability insurance where offered under the appropriate insurance licence.",
+      "Financial needs reviews, budgeting and cash-flow guidance, and small-business financial review—so you can understand your position and make clearer decisions.",
     description:
-      "At Sari Financial Management, we help individuals, families, and business owners better understand their financial position and make informed financial decisions. Support can include personal financial guidance, business financial review, and insurance needs assessment. Accident & sickness, life, critical illness, and disability coverage are offered where permitted under the appropriate insurance licence. This is not investment or securities advice.",
+      "At Sari Financial Management, we help individuals, families, and business owners better understand their financial position and make informed financial decisions. Support can include personal financial guidance and business financial review. This is not investment or securities advice.",
     includes: [
       "Financial needs review",
       "Budget and cash-flow guidance",
       "Small-business financial review",
-      "Life insurance needs assessment",
-      "Critical illness and disability insurance options",
-      "Family and business protection planning",
+      "Understanding financial statements",
+      "Income and expense review",
+      "Financial goal planning",
     ],
     seoTitle:
-      "Financial Services in Calgary | Guidance & Insurance | Sari Financial Management",
+      "Financial Services in Calgary | Guidance & Review | Sari Financial Management",
     seoDescription:
-      "Financial services in Calgary from Sari Financial Management—cash-flow and budget guidance, business financial review, and life, critical illness, and disability insurance where licensed.",
-    h1: "Financial services in Calgary to understand, protect, and plan",
+      "Financial services in Calgary from Sari Financial Management—cash-flow and budget guidance, business financial review, and practical support to understand your numbers.",
+    h1: "Financial services in Calgary to understand your numbers and plan with clarity",
     intro:
-      "One place for coordinated support: understand your numbers, review your financial position, and explore protection options based on your individual, family, or business needs.",
+      "One place for coordinated support: understand your numbers, review your financial position, and get practical guidance based on your individual, family, or business needs.",
     problems: [
       "Income and expenses that feel hard to organize or track",
       "Cash flow that is unpredictable without a clear plan",
       "Business reports that exist but are hard to interpret",
-      "Uncertainty about family or business protection needs",
+      "Uncertainty about where costs or priorities need attention",
       "Wanting practical guidance—not investment product pitches",
     ],
     mayInclude: [
@@ -698,11 +698,7 @@ export const serviceContent: readonly ServiceContent[] = [
       "Debt and expense management guidance",
       "Understanding financial statements",
       "Small-business financial review and cash-flow analysis",
-      "Life insurance needs assessment",
-      "Term and permanent life insurance options",
-      "Disability and critical illness insurance options",
-      "Family and business-owner protection planning",
-      "Existing policy and beneficiary review",
+      "Financial record organization",
     ],
     serviceAreas: [
       {
@@ -734,58 +730,32 @@ export const serviceContent: readonly ServiceContent[] = [
           "Financial information that can support better business decisions",
         ],
       },
-      {
-        title: "Life insurance",
-        description:
-          "Protect what matters most with insurance solutions based on your individual and family needs.",
-        items: [
-          "Life insurance needs assessment",
-          "Term life insurance",
-          "Permanent life insurance options",
-          "Family protection planning",
-          "Income protection considerations",
-          "Business-owner insurance needs",
-          "Beneficiary and coverage review",
-          "Existing policy review",
-        ],
-      },
-      {
-        title: "Accident & sickness insurance",
-        description:
-          "Where offered under the appropriate insurance licence.",
-        items: [
-          "Disability insurance",
-          "Critical illness insurance",
-          "Accident and sickness coverage",
-          "Income protection solutions",
-          "Individual and family needs assessment",
-        ],
-      },
+      // Insurance sections hidden for now — re-enable when ready to publish.
     ],
     benefits: [
       "Clearer understanding of your personal or business financial position",
       "Practical budgeting and cash-flow organization",
-      "Protection planning conversations grounded in your actual needs",
+      "Plain-language explanations of what your numbers mean",
       "Coordinated support alongside bookkeeping, payroll, and tax services",
     ],
     audiences: [
       "Individuals and families who want clearer financial organization",
-      "Self-employed professionals planning cash flow and protection needs",
+      "Self-employed professionals planning cash flow and priorities",
       "Small-business owners reviewing performance and costs",
       "Anyone seeking practical guidance—not investment advice",
     ],
     process: [
       {
         title: "Consultation",
-        body: "We discuss your goals, current financial picture, and whether you need guidance, business review, insurance assessment, or a combination.",
+        body: "We discuss your goals, current financial picture, and whether you need guidance, business review, or a combination.",
       },
       {
         title: "Review",
-        body: "We look at the information you share—budgets, statements, or existing coverage—and identify priorities.",
+        body: "We look at the information you share—budgets, statements, or reports—and identify priorities.",
       },
       {
         title: "Recommendations",
-        body: "You receive plain-language next steps for organization, planning, or protection options that fit the agreed scope.",
+        body: "You receive plain-language next steps for organization and planning that fit the agreed scope.",
       },
       {
         title: "Ongoing support",
@@ -796,12 +766,7 @@ export const serviceContent: readonly ServiceContent[] = [
       {
         question: "Is this investment advice?",
         answer:
-          "No. Financial services at Sari Financial Management focus on understanding your financial position, organizing cash flow and budgets, reviewing business numbers, and—where licensed—insurance needs. It is not investment or securities advice.",
-      },
-      {
-        question: "Do you offer life and disability insurance?",
-        answer:
-          "Yes, where offered under the appropriate insurance licence. That can include life insurance needs assessment, term and permanent options, critical illness, disability, and related family or business protection planning.",
+          "No. Financial services at Sari Financial Management focus on understanding your financial position, organizing cash flow and budgets, and reviewing business numbers. It is not investment or securities advice.",
       },
       {
         question: "Can financial services work with my bookkeeping or tax work?",
@@ -811,11 +776,11 @@ export const serviceContent: readonly ServiceContent[] = [
       {
         question: "How do I get started?",
         answer:
-          "Book a consultation with Sari Financial Management. Tell us whether you need personal guidance, business financial review, insurance assessment, or a mix—we’ll outline a clear scope before work begins.",
+          "Book a consultation with Sari Financial Management. Tell us whether you need personal guidance, business financial review, or a mix—we’ll outline a clear scope before work begins.",
       },
     ],
     disclaimer:
-      "Insurance products are offered only where permitted under the appropriate insurance licence. Financial services here are not investment or securities advice. Suitability and availability are confirmed in consultation.",
+      "Financial services here are not investment or securities advice. Scope and suitability are confirmed in consultation.",
   },
 ] as const;
 

@@ -52,7 +52,7 @@ export const clientBioTodos = [
     id: "licences",
     priority: "high",
     item: "Licences or registrations relevant to tax, bookkeeping, or advisory work in Alberta/Canada",
-    notes: "Especially important for ‘Financial Advisor’ title vs regulated advice scope.",
+    notes: "Especially important for ‘Business Advisor’ title vs regulated advice scope.",
   },
   {
     id: "memberships",

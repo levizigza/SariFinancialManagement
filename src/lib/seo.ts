@@ -39,7 +39,7 @@ export const pageSeo: Record<string, PageSeoEntry> = {
     intent: "financial management Calgary",
     title: "Financial Management in Calgary | Sari Financial Management",
     description:
-      "Sari Financial Management—led by Sari Goitom Tekle, Founder & Financial Advisor—helps Calgary individuals and businesses with bookkeeping, payroll, tax, GST/HST, CRA support, and financial services.",
+      "Sari Financial Management—led by Sari Goitom Tekle, Founder & Business Advisor—helps Calgary individuals and businesses with bookkeeping, payroll, tax, GST/HST, CRA support, and financial services.",
     h1: "Financial management for Calgary businesses.",
     inSitemap: true,
   },
@@ -48,7 +48,7 @@ export const pageSeo: Record<string, PageSeoEntry> = {
     intent: "about Sari Financial Management Calgary",
     title: "About Sari Financial Management in Calgary",
     description:
-      "Meet Sari Goitom Tekle, Founder & Financial Advisor at Sari Financial Management in Calgary, Alberta. Organized financial information and clear communication—More Than Numbers.",
+      "Meet Sari Goitom Tekle, Founder & Business Advisor at Sari Financial Management in Calgary, Alberta. Organized financial information and clear communication—More Than Numbers.",
     h1: "About Sari Goitom Tekle",
     inSitemap: true,
   },
@@ -91,12 +91,12 @@ export const pageSeo: Record<string, PageSeoEntry> = {
   },
   advisory: {
     path: "/services/business-advisory",
-    intent: "financial services Calgary; life insurance Calgary guidance",
+    intent: "financial services Calgary; business financial guidance Calgary",
     title:
-      "Financial Services in Calgary | Guidance & Insurance | Sari Financial Management",
+      "Financial Services in Calgary | Guidance & Review | Sari Financial Management",
     description:
-      "Financial services in Calgary from Sari Financial Management—cash-flow and budget guidance, business financial review, and life, critical illness, and disability insurance where licensed.",
-    h1: "Financial services in Calgary to understand, protect, and plan",
+      "Financial services in Calgary from Sari Financial Management—cash-flow and budget guidance, business financial review, and practical support to understand your numbers.",
+    h1: "Financial services in Calgary to understand your numbers and plan with clarity",
     inSitemap: true,
   },
   resources: {

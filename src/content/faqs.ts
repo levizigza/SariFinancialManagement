@@ -43,7 +43,7 @@ export const faqs: readonly FaqItem[] = [
   {
     id: "services",
     question: "What services does Sari Financial Management provide?",
-    answer: `${site.name} provides bookkeeping, payroll, tax services, GST/HST support, CRA correspondence help, and financial services. Tax services include T1 personal returns, self-employed T1/T2125, T2 corporate returns, and related filings confirmed in consultation. Financial services cover practical financial guidance and—where offered under the appropriate insurance licence—life, critical illness, and disability insurance. This is not investment or securities advice.`,
+    answer: `${site.name} provides bookkeeping, payroll, tax services, GST/HST support, CRA correspondence help, and financial services. Tax services include T1 personal returns, self-employed T1/T2125, T2 corporate returns, and related filings confirmed in consultation. Financial services cover practical financial guidance and business financial review. This is not investment or securities advice.`,
     homepagePreview: true,
     schemaEligible: true,
   },
@@ -57,7 +57,7 @@ export const faqs: readonly FaqItem[] = [
   {
     id: "who",
     question: "Who does Sari Financial Management work with?",
-    answer: `${site.name} works with individuals, families, self-employed professionals, and small-business owners who want clearer, more organized financial information. That includes clients who need help with books, payroll, tax preparation, GST/HST, CRA correspondence, or practical financial guidance and protection planning.`,
+    answer: `${site.name} works with individuals, families, self-employed professionals, and small-business owners who want clearer, more organized financial information. That includes clients who need help with books, payroll, tax preparation, GST/HST, CRA correspondence, or practical financial guidance.`,
     homepagePreview: false,
     schemaEligible: false,
     // TODO(client): confirm preferred audience wording (e.g. specific entity types or industries) if desired
@@ -138,14 +138,7 @@ export const faqDisclaimers: readonly FaqItem[] = [
     id: "investment",
     question: "Do you provide investment advice?",
     answer:
-      "No. Financial services at Sari Financial Management focus on understanding your financial position, organizing cash flow and budgets, reviewing business numbers, and—where licensed—insurance needs. It is not investment or securities advice.",
-    schemaEligible: true,
-  },
-  {
-    id: "insurance",
-    question: "Do you offer life and disability insurance?",
-    answer:
-      "Yes, where offered under the appropriate insurance licence. That can include life insurance needs assessment, term and permanent options, critical illness, disability, and related family or business protection planning. Suitability and availability are confirmed in consultation.",
+      "No. Financial services at Sari Financial Management focus on understanding your financial position, organizing cash flow and budgets, and reviewing business numbers. It is not investment or securities advice.",
     schemaEligible: true,
   },
 ];

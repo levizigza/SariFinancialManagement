@@ -12,7 +12,7 @@ import {
 export const site = {
   name: "Sari Financial Management",
   founder: "Sari Goitom Tekle",
-  founderTitle: "Founder & Financial Advisor",
+  founderTitle: "Founder & Business Advisor",
   location: "Calgary, Alberta",
   phoneDisplay: "825-935-3739",
   phoneHref: "tel:+18259353739",

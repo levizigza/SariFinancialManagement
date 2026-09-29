@@ -57,7 +57,7 @@ export const insightCategories: readonly InsightCategory[] = [
     name: "Financial Services",
     shortName: "Financial",
     description:
-      "Guides on understanding your financial position, cash flow, and protection planning—not investment advice.",
+      "Guides on understanding your financial position, cash flow, and business numbers—not investment advice.",
     href: "/resources/business-advisory",
     serviceHref: "/services/business-advisory",
     jurisdictionFocus: ["Calgary", "Alberta", "Canada"],
