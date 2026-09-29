@@ -20,7 +20,7 @@
   <circle cx="400" cy="420" r="132" fill="#011428" stroke="#cea15d" stroke-opacity="0.45" stroke-width="1.5"/>
   <text x="400" y="445" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="600" fill="#e8d5b5" letter-spacing="0.06em">SGT</text>
   <text x="400" y="620" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="36" font-weight="600" fill="#f7f4ef">Sari Goitom Tekle</text>
-  <text x="400" y="668" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="600" fill="#cea15d" letter-spacing="0.18em">FOUNDER &amp; FINANCIAL ADVISOR</text>
+  <text x="400" y="668" text-anchor="middle" font-family="system-ui, sans-serif" font-size="17" font-weight="600" fill="#cea15d" letter-spacing="0.14em">FOUNDER &amp; BUSINESS ADVISOR</text>
   <!-- Corner marks -->
   <path d="M56 56 H120 M56 56 V120" fill="none" stroke="#cea15d" stroke-opacity="0.4" stroke-width="1.5"/>
   <path d="M744 944 H680 M744 944 V880" fill="none" stroke="#cea15d" stroke-opacity="0.4" stroke-width="1.5"/>

@@ -9,7 +9,7 @@ export const founderPortrait = {
    * Replace with e.g. `/images/founder/sari-goitom-tekle.jpg` (or `.webp`)
    * and set `isPlaceholder: false`. Match `width` / `height` to the file.
    */
-  src: "/images/founder/sari-goitom-tekle.placeholder.svg",
+  src: "/images/founder/sari-goitom-tekle.placeholder-v2.svg",
   width: 800,
   height: 1000,
   /** True while using the designed placeholder — not a real photograph */
