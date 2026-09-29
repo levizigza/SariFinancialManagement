@@ -6,7 +6,7 @@ Replace the placeholder when an approved professional photo is ready.
 
 | File | Status |
 |------|--------|
-| `sari-goitom-tekle.placeholder.svg` | Designed placeholder (monogram + name). Not a photograph. |
+| `sari-goitom-tekle.placeholder-v2.svg` | Designed placeholder (monogram + name). Not a photograph. |
 
 ## When the real photo arrives
 
