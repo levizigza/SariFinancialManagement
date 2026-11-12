@@ -30,11 +30,21 @@ export function SiteFooter({ className }: SiteFooterProps) {
               <span className="text-gold-500/50"> · </span>
               {site.values.join(" · ")}
             </p>
-            <p className="m-0 pt-3 font-sans text-sm text-ivory-50/75">
+            <address className="m-0 pt-3 font-sans text-sm not-italic text-ivory-50/75">
               Led by {site.founder}
               <br />
-              Serving {site.location}, Canada
-            </p>
+              <TextLink
+                href={site.office.mapsHref}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {site.office.name}
+              </TextLink>
+              <br />
+              {site.office.street}
+              <br />
+              {site.office.cityLine}
+            </address>
             <p className="m-0 font-sans text-sm">
               <TextLink
                 href={site.phoneHref}

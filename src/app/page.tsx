@@ -292,7 +292,12 @@ export default function HomePage() {
                 <GoldCurveAccent soft variant="arc" className="w-full" />
               </div>
               <p className="relative m-0 font-display text-3xl font-semibold text-ivory-50">
-                {site.location}
+                {site.office.name}
+              </p>
+              <p className="relative m-0 mt-3 font-sans text-sm text-ivory-50/85">
+                {site.office.street}
+                <br />
+                {site.office.cityLine}
               </p>
               <p className="relative m-0 mt-3 font-sans text-sm text-ivory-50/75">
                 <Link

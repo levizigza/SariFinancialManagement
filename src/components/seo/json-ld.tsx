@@ -4,7 +4,7 @@ import { services } from "@/lib/site";
 
 /**
  * Organization + LocalBusiness JSON-LD using verified data only.
- * No street address (not supplied). No CPA / designation claims.
+ * Office address is the published Treasure Hunt location. No CPA claims.
  */
 export function buildOrganizationLocalBusinessJsonLd() {
   return {
@@ -37,11 +37,14 @@ export function buildOrganizationLocalBusinessJsonLd() {
     ],
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Calgary",
-      addressRegion: "AB",
+      name: site.office.name,
+      streetAddress: site.office.street,
+      addressLocality: site.office.locality,
+      addressRegion: site.office.region,
+      postalCode: site.office.postalCode,
       addressCountry: "CA",
-      // streetAddress intentionally omitted — not verified
     },
+    hasMap: site.office.mapsHref,
     founder: {
       "@type": "Person",
       name: site.founder,

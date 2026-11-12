@@ -49,13 +49,23 @@ export default function ContactPage() {
 
             <address className="not-italic rounded-lg border border-navy-800/12 bg-surface-white p-6 sm:p-7 space-y-4 font-sans">
               <div>
-                <p className="text-sm text-navy-800 m-0">Location</p>
+                <p className="text-sm text-navy-800 m-0">Office</p>
                 <p className="m-0 mt-1 text-lg font-semibold text-navy-900">
-                  {site.location}, Canada
+                  {site.office.name}
                 </p>
-                <p className="m-0 mt-1 text-sm text-navy-800">
-                  Serving Calgary and surrounding areas. Street address available
-                  on request—not published on this site.
+                <p className="m-0 mt-1 text-navy-900">
+                  {site.office.street}
+                  <br />
+                  {site.office.cityLine}
+                </p>
+                <p className="m-0 mt-2 text-sm">
+                  <TextLink
+                    href={site.office.mapsHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open in Google Maps
+                  </TextLink>
                 </p>
               </div>
               <div>

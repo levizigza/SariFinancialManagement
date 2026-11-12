@@ -1,6 +1,6 @@
 /**
  * Central SEO configuration for Sari Financial Management (Calgary, Alberta).
- * Verified data only — no street address, no CPA claims, no fake neighbourhood pages.
+ * Verified data only — published office address, no CPA claims, no fake neighbourhood pages.
  */
 
 import type { Metadata } from "next";

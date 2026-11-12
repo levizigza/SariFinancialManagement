@@ -14,6 +14,17 @@ export const site = {
   founder: "Sari Goitom Tekle",
   founderTitle: "Founder & Business Advisor",
   location: "Calgary, Alberta",
+  office: {
+    name: "Treasure Hunt - Calgary",
+    street: "Unit# 226 - 1830 52nd Street SE",
+    cityLine: "Calgary, AB T2B 1N1",
+    locality: "Calgary",
+    region: "AB",
+    postalCode: "T2B 1N1",
+    country: "Canada",
+    mapsHref:
+      "https://www.google.com/maps/search/?api=1&query=Treasure%20Hunt%20-%20Calgary%2C%20Unit%23%20226%20-%201830%2052nd%20Street%20SE%2C%20Calgary%2C%20AB%20T2B%201N1",
+  },
   phoneDisplay: "825-935-3739",
   phoneHref: "tel:+18259353739",
   email: "sari.financialmanagement@gmail.com",

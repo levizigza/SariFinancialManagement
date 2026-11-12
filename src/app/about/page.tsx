@@ -179,8 +179,14 @@ export default function AboutPage() {
                 </dd>
               </div>
               <div>
-                <dt className="text-navy-800 m-0">Location</dt>
-                <dd className="m-0 mt-1 text-navy-900 font-medium">{site.location}</dd>
+                <dt className="text-navy-800 m-0">Office</dt>
+                <dd className="m-0 mt-1 text-navy-900 font-medium">
+                  {site.office.name}
+                  <br />
+                  {site.office.street}
+                  <br />
+                  {site.office.cityLine}
+                </dd>
               </div>
               <div>
                 <dt className="text-navy-800 m-0">Values</dt>
