@@ -22,7 +22,7 @@ GitHub repo: https://github.com/levizigza/SariFinancialManagement
 
 | Field | Value |
 |-------|--------|
-| Project name | `sarifinancial` |
+| Project name | `sarifinancialmanagement` |
 | Production branch | `master` (or `main`) |
 | Framework preset | **None** (not Next.js) |
 | Build command | `npx next build` |
@@ -64,7 +64,7 @@ GitHub repo: https://github.com/levizigza/SariFinancialManagement
 | `CLOUDFLARE_ACCOUNT_ID` | `abb8a575489689ede076646897c8c94b` |
 
 3. Push to `master`/`main` or run **Deploy Cloudflare Pages** via workflow_dispatch.
-4. The Action deploys to project name **`sarifinancial`** (create it in the dashboard first if needed).
+4. The Action deploys to project name **`sarifinancialmanagement`** (this is the live Pages project for `sarifinancial.com`).
 5. If both Cloudflare Git builds and the Action run, disable one path to avoid double deploys.
 
 ## Smoke checks after go-live
